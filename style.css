@@ -1,0 +1,270 @@
+/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent: #2563eb;
+  --text: #1a1a1a;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --bg: #ffffff;
+  --max-w: 760px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ===== Navigation ===== */
+nav {
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+}
+
+nav .nav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+nav .nav-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.75rem;
+}
+
+nav ul a {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+nav ul a:hover { color: var(--accent); text-decoration: none; }
+
+/* ===== Main Layout ===== */
+main {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+/* ===== Hero / Profile ===== */
+#about {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: start;
+  padding: 3.5rem 0 2.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.profile-text h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.profile-text .position {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+
+.profile-text .bio {
+  font-size: 0.975rem;
+  color: #374151;
+  max-width: 520px;
+  margin-bottom: 1.5rem;
+}
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.profile-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.35rem 0.75rem;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.profile-links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+.profile-photo img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border);
+}
+
+.profile-photo .photo-placeholder {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  border: 3px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--muted);
+}
+
+/* ===== Sections ===== */
+section {
+  padding: 2.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+section:last-child { border-bottom: none; }
+
+section h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+/* ===== Publications ===== */
+.pub-list { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
+
+.pub-item { display: flex; gap: 1rem; }
+
+.pub-year {
+  min-width: 40px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding-top: 0.15rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.pub-content .pub-title {
+  font-weight: 600;
+  font-size: 0.975rem;
+  margin-bottom: 0.2rem;
+}
+
+.pub-content .pub-authors {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-bottom: 0.2rem;
+}
+
+.pub-content .pub-venue {
+  font-size: 0.875rem;
+  color: #374151;
+  font-style: italic;
+}
+
+.pub-links { margin-top: 0.4rem; display: flex; gap: 0.6rem; flex-wrap: wrap; }
+
+.pub-links a {
+  font-size: 0.8rem;
+  color: var(--accent);
+  border: 1px solid #dbeafe;
+  background: #eff6ff;
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+}
+
+.pub-links a:hover { background: #dbeafe; text-decoration: none; }
+
+/* ===== Projects ===== */
+.project-grid { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.project-item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  transition: border-color 0.15s;
+}
+
+.project-item:hover { border-color: var(--accent); }
+
+.project-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.35rem; }
+.project-item .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.6rem; }
+.project-item .tag {
+  font-size: 0.75rem;
+  background: #f3f4f6;
+  color: var(--muted);
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+}
+.project-item p { font-size: 0.9rem; color: #374151; }
+
+/* ===== CV ===== */
+.cv-section { margin-bottom: 2rem; }
+.cv-section h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text); }
+
+.cv-entry { display: grid; grid-template-columns: 1fr auto; gap: 1rem; margin-bottom: 1rem; }
+.cv-entry .cv-title { font-weight: 600; font-size: 0.95rem; }
+.cv-entry .cv-place { font-size: 0.875rem; color: var(--muted); }
+.cv-entry .cv-date { font-size: 0.85rem; color: var(--muted); white-space: nowrap; }
+
+.cv-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--accent);
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+.cv-download:hover { background: #1d4ed8; text-decoration: none; }
+
+/* ===== Footer ===== */
+footer {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 3rem;
+  text-align: center;
+  font-size: 0.825rem;
+  color: var(--muted);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  #about { grid-template-columns: 1fr; }
+  .profile-photo { order: -1; }
+  .profile-photo .photo-placeholder,
+  .profile-photo img { width: 90px; height: 90px; font-size: 1.75rem; }
+  .profile-text h1 { font-size: 1.6rem; }
+  nav ul { gap: 1rem; }
+}
