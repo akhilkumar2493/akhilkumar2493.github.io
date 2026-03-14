@@ -255,6 +255,43 @@ section h2 {
 .jtag-cricket   { background: #fee2e2; color: #991b1b; }
 .jtag-year      { background: #f3f4f6; color: var(--muted); }
 
+.project-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.project-detail-full { margin-bottom: 1rem; }
+.project-detail-block h4 {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+.project-detail-block p {
+  font-size: 0.875rem;
+  color: #374151;
+  line-height: 1.6;
+}
+.project-results {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: #f9fafb;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+.project-results h4 {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+.project-results p { font-size: 0.875rem; color: #374151; line-height: 1.6; }
+
 .journey-flow {
   display: flex;
   align-items: flex-start;
