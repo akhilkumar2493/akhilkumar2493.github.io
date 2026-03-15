@@ -306,8 +306,6 @@ section h2::before {
 .proj-card-icon { font-size: 2.5rem; line-height: 1; }
 
 .proj-card-photo {
-  padding: 0;
-  height: auto;
   background: #f1f0f5;
 }
 
