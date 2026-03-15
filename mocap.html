@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Motion Capture Reliability — Akhilesh Kumar Ramachandran</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #4338ca;
+      --accent-light: #eef2ff;
+      --accent-border: #c7d2fe;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #ffffff;
+      --bg-subtle: #f9fafb;
+      --max-w: 860px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .nav-back:hover { color: var(--accent); text-decoration: none; }
+    .nav-sections {
+      display: flex;
+      gap: 0.1rem;
+      list-style: none;
+    }
+    .nav-sections a {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 500;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-sections a:hover {
+      color: var(--accent);
+      background: var(--accent-light);
+      text-decoration: none;
+    }
+
+    /* ── Layout ── */
+    .page { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      height: 420px;
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(15,10,40,0.88) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2.5rem;
+    }
+    .hero-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.6rem;
+    }
+    .hero h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+      max-width: 620px;
+      margin-bottom: 1rem;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.65);
+    }
+    .hero-meta span { display: flex; align-items: center; gap: 0.3rem; }
+
+    /* ── Section labels ── */
+    .section-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── Research questions ── */
+    #questions { margin-bottom: 3rem; }
+    .questions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .question-card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.4rem;
+    }
+    .question-card .q-num {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .question-card p {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    /* ── Overview ── */
+    #overview { margin-bottom: 3rem; }
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .overview-block {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+    }
+    .overview-block h4 {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .overview-block p {
+      font-size: 0.875rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+    .stat-box {
+      text-align: center;
+      background: var(--accent-light);
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      padding: 1rem 0.75rem;
+    }
+    .stat-box .s-n {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .stat-box .s-l {
+      font-size: 0.68rem;
+      color: var(--muted);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    /* ── Divider ── */
+    hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+    /* ── Stage flow ── */
+    #methodology { margin-bottom: 3rem; }
+    .stage {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 0 1rem;
+      margin-bottom: 0;
+    }
+    .stage-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .stage-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .stage-line {
+      width: 2px;
+      flex: 1;
+      background: var(--border);
+      margin: 6px 0;
+      min-height: 20px;
+    }
+    .stage-content { padding-bottom: 2.5rem; }
+    .stage-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1.1rem;
+      margin-top: 5px;
+    }
+
+    .field { margin-bottom: 0.9rem; }
+    .field-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+    .field-text {
+      font-size: 0.9rem;
+      color: #374151;
+      line-height: 1.65;
+    }
+
+    .why-box {
+      background: var(--bg-subtle);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 0.85rem 1.1rem;
+      margin-top: 0.75rem;
+    }
+    .why-box .field-label { color: var(--accent); }
+    .why-box .field-text { font-style: italic; font-size: 0.875rem; }
+
+    /* ── Stage image ── */
+    .stage-img {
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 1.1rem 0;
+      border: 1px solid var(--border);
+    }
+    .stage-img img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      max-height: 280px;
+    }
+    .stage-img.contain img {
+      object-fit: contain;
+      background: #f8f8fc;
+      max-height: 240px;
+    }
+    .img-caption {
+      padding: 0.55rem 0.85rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      background: var(--bg-subtle);
+      border-top: 1px solid var(--border);
+      line-height: 1.5;
+    }
+
+    /* ── Two-column image layout ── */
+    .img-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin: 1.1rem 0;
+    }
+
+    /* ── Constraints / informed-by tags ── */
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.25rem;
+    }
+    .tag {
+      font-size: 0.73rem;
+      font-weight: 500;
+      padding: 0.25rem 0.7rem;
+      border-radius: 9999px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    /* ── Publication footer ── */
+    .pub-section {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .pub-section h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .pub-section p {
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.83rem;
+      font-weight: 600;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+    .btn:hover { background: #3730a3; text-decoration: none; }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+    }
+    .btn-outline:hover { background: var(--accent-light); }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.25rem; }
+      .questions-grid, .overview-grid, .img-pair { grid-template-columns: 1fr; }
+      .stat-row { grid-template-columns: repeat(2, 1fr); }
+      .nav-sections { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to Portfolio
+      </a>
+      <ul class="nav-sections">
+        <li><a href="#questions">Questions</a></li>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#publication">Publication</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero">
+    <img src="mocap6.jpg" alt="Markerless motion capture" />
+    <div class="hero-overlay">
+      <div class="hero-tag">Sports Biomechanics &middot; Cardiff Metropolitan University &middot; 2022–Present</div>
+      <h1>Reliability of AI-Powered Markerless Motion Capture During Jump-Landing Tasks in Youth Female Athletes</h1>
+      <div class="hero-meta">
+        <span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          30 Participants
+        </span>
+        <span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Within-Session Reliability Study
+        </span>
+        <span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Manuscript in Preparation
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+
+    <!-- Research Questions -->
+    <section id="questions">
+      <p class="section-label">Research Questions</p>
+      <div class="questions-grid">
+        <div class="question-card">
+          <div class="q-num">Question 01</div>
+          <p>Does a markerless motion capture system (Theia3D) produce reliable measurements of lower-limb kinematics and kinetics during jump-landing tasks in youth female athletes?</p>
+        </div>
+        <div class="question-card">
+          <div class="q-num">Question 02</div>
+          <p>How does biological maturation — pre-pubertal, pubertal, and post-pubertal — influence the reliability of these measurements across discrete time points and the full landing phase waveform?</p>
+        </div>
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- Overview -->
+    <section id="overview">
+      <p class="section-label">Overview</p>
+      <div class="overview-grid">
+        <div class="overview-block">
+          <h4>Context</h4>
+          <p>Markerless motion capture systems offer a faster, non-invasive alternative to traditional marker-based systems for biomechanical analysis. Before they can be adopted in clinical and field settings for ACL injury risk screening, their measurement reliability must be rigorously established — particularly in youth female athletes, where ongoing maturation introduces unique variability into movement patterns.</p>
+        </div>
+        <div class="overview-block">
+          <h4>What We Did</h4>
+          <p>We recruited 30 youth female athletes across three maturity groups and captured three trials each of four jump-landing tasks using an eight-camera Theia3D system synchronised with Kistler force plates. We examined within-session relative reliability (ICC) and absolute reliability (SEM) at discrete time points and across the full landing phase time-series, with a subgroup analysis by maturity.</p>
+        </div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="s-n">30</div>
+          <div class="s-l">Youth Female Athletes</div>
+        </div>
+        <div class="stat-box">
+          <div class="s-n">4</div>
+          <div class="s-l">Jump-Landing Tasks</div>
+        </div>
+        <div class="stat-box">
+          <div class="s-n">3</div>
+          <div class="s-l">Maturity Groups</div>
+        </div>
+        <div class="stat-box">
+          <div class="s-n">25+</div>
+          <div class="s-l">Variables Analysed</div>
+        </div>
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- Methodology -->
+    <section id="methodology">
+      <p class="section-label">Study Design</p>
+
+      <!-- Stage 1 -->
+      <div class="stage">
+        <div class="stage-left">
+          <div class="stage-num">1</div>
+          <div class="stage-line"></div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-title">Participant Recruitment &amp; Maturity Classification</div>
+
+          <div class="field">
+            <div class="field-label">Motivation</div>
+            <div class="field-text">Youth female athletes are disproportionately affected by ACL injuries, with risk accelerating through puberty. Despite this, reliability data for markerless motion capture specifically in this population — stratified by biological maturity — was absent from the literature. Most reliability studies had used adult cohorts or mixed-sex samples, limiting clinical translation.</div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">Constraints</div>
+            <div class="field-list">
+              <div class="tag-list">
+                <span class="tag">No prior maturity-specific reliability benchmarks</span>
+                <span class="tag">Small group sizes limit statistical power</span>
+                <span class="tag">Age ≠ maturation — needed biological classification</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">Informed by</div>
+            <div class="tag-list">
+              <span class="tag">Khamis &amp; Roche (1994) — PAH estimation</span>
+              <span class="tag">Kraemer &amp; Thiemann — reliability sample size</span>
+              <span class="tag">ACL epidemiology literature</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">Process</div>
+            <div class="field-text">30 athletes were randomly selected from a larger cross-sectional sample by a researcher external to the project. Standing and seated heights were measured to calculate percentage of predicted adult height (PAH). Participants were classified as pre-pubertal (PAH &lt;86%), pubertal (PAH 86–95%), or post-pubertal (PAH &gt;95%), with 10 athletes per group. Dominant limb was determined by asking which leg they would kick a ball with.</div>
+          </div>
+
+          <div class="why-box">
+            <div class="field-label">Why this approach?</div>
+            <div class="field-text">Age-based grouping would have obscured the biological changes that actually drive variation in movement mechanics. PAH was chosen over other maturity markers (e.g. Tanner staging) because it is non-invasive, quick to administer in field settings, and has been validated for use in youth sport research. The minimum sample of 25 was determined by Kraemer &amp; Thiemann's estimation for a desired ICC of 0.90 at 90% power. Three groups of 10 were used so that reliability could be compared across the maturation spectrum.</div>
+          </div>
+
+          <div class="stage-img contain">
+            <img src="mocap2.jpg" alt="Participant maturity classification — three groups" />
+            <div class="img-caption">Fig 1. Participant stratification by biological maturity: 10 athletes per group (pre-pubertal, pubertal, post-pubertal) classified using percentage of predicted adult height (PAH) via the Khamis &amp; Roche method.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 2 -->
+      <div class="stage">
+        <div class="stage-left">
+          <div class="stage-num">2</div>
+          <div class="stage-line"></div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-title">Data Collection — Jump-Landing Tasks</div>
+
+          <div class="field">
+            <div class="field-label">Motivation</div>
+            <div class="field-text">The tasks selected needed to reflect the movement contexts in which non-contact ACL injuries most commonly occur — dynamic, multi-directional, and involving high-impact lower-limb loading. Both bilateral and unilateral loading conditions were necessary to capture the full range of clinical relevance.</div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">Constraints</div>
+            <div class="tag-list">
+              <span class="tag">Markerless — no post-hoc marker correction possible</span>
+              <span class="tag">Youth population — safety and trial rejection criteria critical</span>
+              <span class="tag">Must capture ACL-relevant movement planes</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">Informed by</div>
+            <div class="tag-list">
+              <span class="tag">ACL injury mechanism literature</span>
+              <span class="tag">Ford et al. (2007)</span>
+              <span class="tag">Mok et al. (2016)</span>
+              <span class="tag">DiCesare et al. (2015)</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">Process</div>
+            <div class="field-text">Participants completed three successful trials each of four jump-landing tasks: a bilateral countermovement jump (CMJ), a drop vertical jump (DVJ) from a 30 cm box, a single-leg countermovement jump (SLCMJ), and a modified single-leg drop vertical jump (mSLDVJ). All tasks were performed with arms akimbo to eliminate upper limb compensation. Data were captured using an eight-camera Theia3D system operating at 100 Hz, synchronised with two Kistler force plates embedded in the floor at 1000 Hz. A standardised warm-up, visual demonstrations, and 3–4 practice trials were completed before data collection. Trials were rejected if hands left hips, if landing was unstable, or if the contralateral limb made ground contact during single-leg tasks.</div>
+          </div>
+
+          <div class="why-box">
+            <div class="field-label">Why four tasks?</div>
+            <div class="field-text">A single task would not capture the variability in bilateral versus unilateral loading, or the difference between a self-initiated jump and a reactive drop landing. The DVJ in particular has been widely used in ACL injury risk screening due to its ability to expose frontal and transverse plane loading patterns. The SLCMJ and mSLDVJ were included because single-leg tasks place greater demands on neuromuscular control — where maturational differences in reliability were expected to be most pronounced.</div>
+          </div>
+
+          <div class="img-pair">
+            <div class="stage-img contain" style="margin:0;">
+              <img src="mocap3.jpg" alt="Drop vertical jump task phases" />
+              <div class="img-caption">Fig 2. Drop Vertical Jump (DVJ) — participant steps off a 30 cm box, lands bilaterally on force plates, and immediately performs a maximal vertical jump. Five-phase sequence shown.</div>
+            </div>
+            <div class="stage-img contain" style="margin:0;">
+              <img src="mocap4.jpg" alt="Single-leg countermovement jump phases" />
+              <div class="img-caption">Fig 3. Single-Leg Countermovement Jump (SLCMJ) — unilateral task placing greater neuromuscular demands; expected to expose maturity-related differences in reliability.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 3 -->
+      <div class="stage">
+        <div class="stage-left">
+          <div class="stage-num">3</div>
+          <div class="stage-line"></div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-title">Data Processing &amp; Signal Filtering</div>
+
+          <div class="field">
+            <div class="field-label">Motivation</div>
+            <div class="field-text">Raw kinematic data from markerless systems contains high-frequency noise — particularly during fast dynamic movements where video-based pose estimation can produce frame-to-frame instability. Filtering and standardisation were necessary to make data comparable across participants and tasks, and to enable a meaningful time-series analysis.</div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">Constraints</div>
+            <div class="tag-list">
+              <span class="tag">Cutoff frequency must be justified — not assumed</span>
+              <span class="tag">Landing durations vary — normalisation required</span>
+              <span class="tag">Proprietary Theia3D pipeline — limited transparency</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">Informed by</div>
+            <div class="tag-list">
+              <span class="tag">Winter (2009) — residual analysis</span>
+              <span class="tag">Theia3D software v2023.2</span>
+              <span class="tag">Visual3D (C-Motion)</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">Process</div>
+            <div class="field-text">Video camera data were processed through Theia3D software to produce 3D kinematic data using deep neural network-based pose estimation and an inverse kinematic solution. A Woltring generalised cross-validity quintic-spline (GVCSPL) filter was applied to kinematic data at a 14 Hz cutoff frequency. Ground reaction force data were filtered using a fourth-order Butterworth zero-lag low-pass filter, also at 14 Hz. The landing phase of interest — from initial contact (vGRF &gt;10 N) to the lowest vertical position of the centre of mass — was then normalised to 101 data points (0–100%) to enable pointwise time-series comparison across participants regardless of individual landing duration.</div>
+          </div>
+
+          <div class="why-box">
+            <div class="field-label">Why 14 Hz and 101 data points?</div>
+            <div class="field-text">The 14 Hz cutoff was not a default assumption — it was determined through residual analysis (Winter, 2009), which plots the difference between filtered and unfiltered signals across a range of cutoff frequencies to identify the point at which signal is preserved and noise is removed. Normalisation to 101 points was chosen to standardise the time-series across the landing phase, enabling the pointwise ICC function to be computed at every percentage of the movement — a method that reveals which specific phase of the landing is most and least reliable, rather than collapsing everything to a single number.</div>
+          </div>
+
+          <div class="stage-img contain">
+            <img src="mocap5.jpg" alt="Data processing pipeline" />
+            <div class="img-caption">Fig 4. Processing pipeline — raw video data from 8 cameras enters Theia3D (deep neural net pose estimation → inverse kinematics), is filtered via Woltring GVCSPL at 14 Hz, exported to Visual3D, and normalised to 101 data points for time-series analysis.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 4 -->
+      <div class="stage">
+        <div class="stage-left">
+          <div class="stage-num">4</div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-title">Reliability Analysis — Discrete &amp; Time-Series</div>
+
+          <div class="field">
+            <div class="field-label">Motivation</div>
+            <div class="field-text">Traditional reliability studies in biomechanics report ICC and SEM at discrete time points (e.g. initial contact, peak angle). While informative, this approach provides an incomplete picture — it tells you whether a single snapshot of the movement is reliable, but not whether the entire movement pattern is. For ACL screening, which depends on detecting subtle waveform-level differences between athletes, a time-series approach was essential.</div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">Constraints</div>
+            <div class="tag-list">
+              <span class="tag">No existing time-series reliability data for Theia3D</span>
+              <span class="tag">CMC underestimates reliability for small motions</span>
+              <span class="tag">Subgroup sizes of 10 limit power — limb averaging used</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">Informed by</div>
+            <div class="tag-list">
+              <span class="tag">Pini et al. (2019) — pointwise ICC framework</span>
+              <span class="tag">Schelin et al. (2016) — modified R code</span>
+              <span class="tag">Koo &amp; Li (2016) — ICC interpretation</span>
+              <span class="tag">Weir &amp; Vincent (2005) — SEM calculation</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">Process</div>
+            <div class="field-text">Relative reliability was assessed using a two-way mixed, absolute agreement intraclass correlation coefficient (ICC₃,₁) at discrete time points — initial contact and peak instant — for 25 variables (16 kinematic, 9 kinetic). Absolute reliability was assessed via standard error of measurement (SEM) calculated from the mean square error of a repeated measures ANOVA. For the time-series analysis, a pointwise ICC and SEM were computed at each of the 101 normalised data points using a modified version of Schelin et al.'s (2016) R code. An integrated ICC — obtained by integrating the pointwise function across the full domain — provided a single global reliability index. The subgroup analysis averaged dominant and non-dominant limb values per participant per maturity group to improve statistical power given the n=10 per group.</div>
+          </div>
+
+          <div class="why-box">
+            <div class="field-label">Why pointwise ICC over the coefficient of multiple correlation?</div>
+            <div class="field-text">The coefficient of multiple correlation (CMC) — the most common waveform reliability metric in biomechanics — has documented limitations: it underestimates reliability for variables with small ranges of motion, it is insensitive to systematic bias across the waveform, and it ignores inter-individual variation. The pointwise ICC framework recommended by Pini et al. (2019) addresses all three limitations. It treats each time point as an independent observation, accounts for between-subject variance, and outputs a reliability profile across the entire movement — enabling researchers to identify exactly which phases of the landing are most susceptible to measurement error.</div>
+          </div>
+
+          <div class="stage-img contain">
+            <img src="mocap_icc.jpg" alt="Pointwise ICC reliability curves" />
+            <div class="img-caption">Fig 5. Pointwise ICC profiles across the normalised landing phase (0–100%) for key kinematic variables (left), and integrated ICC comparison across maturity groups (right). Dashed lines mark Good (0.75) and Excellent (0.90) thresholds.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- Publication -->
+    <section id="publication">
+      <p class="section-label">Publication</p>
+      <div class="pub-section">
+        <div>
+          <h3>Manuscript in Preparation</h3>
+          <p>Ramachandran AK et al. — Within-session reliability of markerless motion capture during jump-landing tasks in youth female athletes across maturity groups. <em>Target: Journal of Biomechanics / Gait &amp; Posture, 2025.</em></p>
+        </div>
+        <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
+          <a href="https://scholar.google.com/citations?user=wJAbYaUAAAAJ&hl=en" target="_blank" rel="noopener" class="btn btn-outline">Google Scholar</a>
+          <a href="index.html" class="btn">← Back to Portfolio</a>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /page -->
+
+</body>
+</html>
