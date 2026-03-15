@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maturation and Jump-Landing Biomechanics — Akhilesh Kumar Ramachandran</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #4338ca;
+      --accent-light: #eef2ff;
+      --accent-border: #c7d2fe;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #ffffff;
+      --bg-subtle: #f9fafb;
+      --max-w: 860px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Nav */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .nav-back:hover { color: var(--accent); text-decoration: none; }
+    .nav-sections {
+      display: flex;
+      gap: 0.1rem;
+      list-style: none;
+    }
+    .nav-sections a {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 500;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-sections a:hover {
+      color: var(--accent);
+      background: var(--accent-light);
+      text-decoration: none;
+    }
+
+    /* Layout */
+    .page { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      height: 420px;
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(15,10,40,0.88) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2.5rem;
+    }
+    .hero-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.6rem;
+    }
+    .hero h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+      max-width: 620px;
+      margin-bottom: 1rem;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.65);
+    }
+    .hero-meta span { display: flex; align-items: center; gap: 0.3rem; }
+
+    /* Section labels */
+    .section-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    /* Overview */
+    #overview { margin-bottom: 3rem; }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .stat-box {
+      text-align: center;
+      background: var(--accent-light);
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      padding: 1rem 0.75rem;
+    }
+    .stat-box .s-n {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .stat-box .s-l {
+      font-size: 0.68rem;
+      color: var(--muted);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+    .overview-block {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+    }
+    .overview-block h4 {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .overview-block p {
+      font-size: 0.875rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .overview-block p + p { margin-top: 0.6rem; }
+
+    /* Divider */
+    hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+    /* Stage flow */
+    #methodology { margin-bottom: 3rem; }
+    .stage {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 0 1rem;
+      margin-bottom: 0;
+    }
+    .stage-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .stage-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .stage-line {
+      width: 2px;
+      flex: 1;
+      background: var(--border);
+      margin: 6px 0;
+      min-height: 20px;
+    }
+    .stage-content { padding-bottom: 2.5rem; }
+    .stage-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1.1rem;
+      margin-top: 5px;
+    }
+
+    .field { margin-bottom: 0.9rem; }
+    .field-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+    .field-text {
+      font-size: 0.9rem;
+      color: #374151;
+      line-height: 1.65;
+    }
+
+    .why-box {
+      background: var(--bg-subtle);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 0.85rem 1.1rem;
+      margin-top: 0.75rem;
+    }
+    .why-box .field-label { color: var(--accent); }
+    .why-box .field-text { font-style: italic; font-size: 0.875rem; }
+
+    /* Stage image */
+    .stage-img {
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 1.1rem 0;
+      border: 1px solid var(--border);
+    }
+    .stage-img img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      max-height: 280px;
+    }
+    .stage-img.contain img {
+      object-fit: contain;
+      background: #f8f8fc;
+      max-height: 240px;
+    }
+    .img-caption {
+      padding: 0.55rem 0.85rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      background: var(--bg-subtle);
+      border-top: 1px solid var(--border);
+      line-height: 1.5;
+    }
+
+    /* My Role */
+    #my-role { margin-bottom: 3rem; }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.25rem; }
+      .stat-row { grid-template-columns: repeat(2, 1fr); }
+      .nav-sections { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to Portfolio
+      </a>
+      <ul class="nav-sections">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#my-role">My Role</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero">
+    <img src="acl3.jpg" alt="Biomechanical risk modelling" />
+    <div class="hero-overlay">
+      <div class="hero-tag">Sports Biomechanics &middot; Cardiff Metropolitan University &middot; 2022–Present</div>
+      <h1>Influence of Biological Maturation on Jump-Landing Biomechanics and Limb Asymmetry in Youth Female Athletes</h1>
+      <div class="hero-meta">
+        <span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          65 Participants
+        </span>
+        <span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Cross-Sectional Study
+        </span>
+        <span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Manuscript in Preparation
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+
+    <!-- Overview -->
+    <section id="overview">
+      <p class="section-label">Overview</p>
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="s-n">65</div>
+          <div class="s-l">Youth Female Athletes</div>
+        </div>
+        <div class="stat-box">
+          <div class="s-n">4</div>
+          <div class="s-l">Jump-Landing Tasks</div>
+        </div>
+        <div class="stat-box">
+          <div class="s-n">3</div>
+          <div class="s-l">Maturity Groups</div>
+        </div>
+        <div class="stat-box">
+          <div class="s-n">3</div>
+          <div class="s-l">Joints Analysed</div>
+        </div>
+      </div>
+      <div class="overview-block" style="margin-top:1rem;" id="aim">
+        <h4>Context</h4>
+        <p>Female athletes experience a significant increase in ACL injury risk during adolescence, driven by a neuromuscular lag in which rapid skeletal growth outpaces the development of muscle strength and motor control. This creates a window of vulnerability where dynamic landing mechanics deteriorate and inter-limb asymmetries emerge. Understanding precisely how biomechanical risk factors evolve across the maturation spectrum is essential for identifying when and where targeted injury prevention interventions should be applied.</p>
+        <p>Prior research has predominantly examined adult populations, focused on knee kinematics alone, and relied on discrete time-point measures that collapse the complexity of a dynamic movement into a single value. This study addressed all three gaps. Using a cross-sectional design, it aimed to determine how maturity status (pre-pubertal, pubertal, post-pubertal) influences lower-limb kinematics and kinetics at the hip, knee, and ankle during four jump-landing tasks, and whether kinematic and kinetic variables differ between the dominant and non-dominant limb across maturity groups.</p>
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- Methodology -->
+    <section id="methodology">
+      <p class="section-label" style="font-size:0.8rem;margin-bottom:1.5rem;">Study Design</p>
+
+      <!-- Stage 1 -->
+      <div class="stage">
+        <div class="stage-left">
+          <div class="stage-num">1</div>
+          <div class="stage-line"></div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-title">Participant Recruitment and Maturity Classification</div>
+
+          <div class="field">
+            <div class="field-label">Process</div>
+            <div class="field-text">65 youth female athletes (ages 7–18) volunteered from multidirectional sports including football, basketball, volleyball, and netball. Eligibility required no lower-limb injury in the preceding six months and no history of ACL injury. Body mass, standing height, and parental heights were recorded to estimate maturity status using percentage of predicted adult height (PAH; Khamis and Roche, 1994). Participants were classified as pre-pubertal (PAH below 86%), pubertal (PAH 86–95%), or post-pubertal (PAH above 95%). Limb dominance was defined as the preferred leg for kicking a ball. Written parental consent and participant assent were obtained following full disclosure of procedures, benefits, and risks.</div>
+          </div>
+
+          <div class="why-box">
+            <div class="field-label">Why this approach?</div>
+            <div class="field-text">Age is a poor proxy for biological maturation: two athletes of the same chronological age can be at vastly different developmental stages. PAH was chosen because it is non-invasive, quick to administer, and has been validated specifically for youth sport settings. Recruiting across multidirectional sports ensured the sample reflected the breadth of athletic populations most exposed to ACL injury risk.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 2 -->
+      <div class="stage">
+        <div class="stage-left">
+          <div class="stage-num">2</div>
+          <div class="stage-line"></div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-title">Data Collection: Jump-Landing Tasks</div>
+
+          <div class="field">
+            <div class="field-label">Process</div>
+            <div class="field-text">Participants completed four jump-landing tasks: a bilateral countermovement jump (CMJ), a drop vertical jump (DVJ) from a 30 cm box, a single-leg countermovement jump (SLCMJ), and a modified single-leg drop vertical jump (mSLDVJ). All tasks were performed with arms akimbo to eliminate upper-limb compensation. Whole-body kinematics were captured using an eight-camera Theia3D markerless motion capture system at 100 Hz, synchronised with Kistler force plates at 1000 Hz. A standardised warm-up and practice trials preceded data collection. Three successful trials per task were recorded for each participant.</div>
+          </div>
+
+          <div class="why-box">
+            <div class="field-label">Why four tasks?</div>
+            <div class="field-text">Bilateral and unilateral tasks were included to capture a range of loading conditions. The DVJ has the strongest evidence base for exposing ACL-relevant frontal and transverse plane mechanics. Single-leg tasks isolate limb-specific loading and are particularly sensitive to neuromuscular asymmetries that emerge with maturation. Using both self-initiated and reactive drop-landing formats ensured the findings would generalise across sport-specific movement demands.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 3 -->
+      <div class="stage">
+        <div class="stage-left">
+          <div class="stage-num">3</div>
+          <div class="stage-line"></div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-title">Data Processing and Biomechanical Modelling</div>
+
+          <div class="field">
+            <div class="field-label">Process</div>
+            <div class="field-text">Motion capture data were processed in Theia3D to produce 3D joint kinematics via deep neural network-based pose estimation and an inverse kinematic solution. The landing phase was defined from initial contact (vGRF exceeding 10 N) to the instant of lowest vertical position of the centre of mass. Three-dimensional kinematics and kinetics were extracted at the hip, knee, and ankle across all three planes of motion: sagittal, frontal, and transverse. Net internal joint moments were derived via Newton-Euler inverse dynamics and referenced to the proximal segment. All computations were performed in Visual3D. Time-series data were normalised to 101 data points for waveform analysis.</div>
+          </div>
+
+          <div class="why-box">
+            <div class="field-label">Why include hip and ankle alongside the knee?</div>
+            <div class="field-text">The majority of prior studies have focused exclusively on the knee, despite the hip and ankle playing central roles in force transmission along the kinetic chain. Aberrant hip adduction and internal rotation mechanics are established proximal contributors to knee valgus loading. Ankle mechanics influence ground contact strategy and distal load distribution. Restricting analysis to the knee alone would have missed the full picture of how maturation reshapes lower-limb movement strategy.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 4 -->
+      <div class="stage">
+        <div class="stage-left">
+          <div class="stage-num">4</div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-title">Statistical Analysis: Discrete and Waveform Approaches</div>
+
+          <div class="field">
+            <div class="field-label">Process</div>
+            <div class="field-text">A mixed model ANOVA examined the effects of maturity group (between-subjects) and limb dominance (within-subjects) on 25 discrete variables, including kinematic values at initial contact and peak instant and nine kinetic variables. Post-hoc tests with Bonferroni correction were applied where significant main effects were found. Effect sizes were reported as partial eta squared. For the waveform analysis, one-dimensional Statistical Parametric Mapping (SPM1D) was applied to time-normalised landing phase data using the spm1d library in MATLAB. A one-way ANOVA tested overall between-group differences, followed by pairwise post-hoc t-tests with Bonferroni correction to identify specific regions of difference across the landing phase waveform.</div>
+          </div>
+
+          <div class="why-box">
+            <div class="field-label">Why SPM alongside discrete analysis?</div>
+            <div class="field-text">Discrete measures reduce a dynamic movement to a single time point, typically peak angle or moment. This approach misses rapid biomechanical transitions in the early landing phase and cannot show when during the movement differences between groups emerge or resolve. SPM preserves the full temporal structure of the data, treating the waveform as a continuous signal and identifying specific windows of the landing phase where maturity-related or limb-related differences are statistically significant. The combination of both approaches provided a more complete understanding than either method alone.</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <hr />
+
+    <!-- My Role -->
+    <section id="my-role">
+      <p class="section-label" style="font-size:0.8rem;margin-bottom:1.5rem;">My Role</p>
+      <ul style="list-style:disc;padding-left:1.25rem;font-size:0.9rem;color:#374151;line-height:2;">
+        <li>Study design and ethical approval</li>
+        <li>Participant recruitment and maturity classification</li>
+        <li>Data collection using Theia3D system and Kistler force plates</li>
+        <li>Post-processing in Theia3D and Visual3D including inverse dynamics</li>
+        <li>Discrete mixed model ANOVA and effect size analysis</li>
+        <li>SPM1D waveform analysis in MATLAB</li>
+        <li>Maturity group and limb dominance subgroup analyses</li>
+      </ul>
+    </section>
+
+  </div><!-- /page -->
+
+</body>
+</html>
