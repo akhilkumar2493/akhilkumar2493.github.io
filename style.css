@@ -307,11 +307,14 @@ section h2::before {
 
 .proj-card-photo {
   background: #f1f0f5;
+  height: 180px;
+  overflow: hidden;
 }
 
 .proj-card-photo img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
