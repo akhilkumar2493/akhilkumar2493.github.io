@@ -675,6 +675,32 @@ section h2::before {
   margin-bottom: 0.45rem;
 }
 
+/* Research stage flow */
+.cs-stages { margin-bottom: 1.25rem; }
+.cs-stage { display: flex; gap: 0.75rem; }
+.cs-stage-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+.cs-stage-num {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--accent); color: white;
+  font-size: 0.68rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.cs-stage-line { width: 2px; flex: 1; background: var(--border); margin: 4px 0; min-height: 10px; }
+.cs-stage-content { flex: 1; padding-bottom: 1.1rem; }
+.cs-stage-title { font-size: 0.82rem; font-weight: 700; color: var(--text); margin: 2px 0 0.55rem; }
+.cs-row { display: grid; grid-template-columns: 76px 1fr; gap: 0.3rem 0.5rem; margin-bottom: 0.3rem; align-items: baseline; }
+.cs-row-label {
+  font-size: 0.6rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.07em; color: var(--muted); padding-top: 2px;
+}
+.cs-row-text { font-size: 0.815rem; color: #374151; line-height: 1.55; }
+.cs-why {
+  background: var(--bg-subtle); border-left: 2px solid var(--accent-border);
+  border-radius: 0 6px 6px 0; padding: 0.45rem 0.65rem; margin-top: 0.4rem;
+}
+.cs-why .cs-row-label { color: var(--accent); }
+.cs-why .cs-row-text { font-size: 0.8rem; font-style: italic; }
+
 /* Image banner */
 .modal-img-banner {
   width: calc(100% + 3.5rem);
