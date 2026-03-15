@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VR Intervention for ACL Injury Prevention — Akhilesh Kumar Ramachandran</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #4338ca;
+      --accent-light: #eef2ff;
+      --accent-border: #c7d2fe;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #ffffff;
+      --bg-subtle: #f9fafb;
+      --max-w: 860px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .nav-back:hover { color: var(--accent); text-decoration: none; }
+    .nav-sections { display: flex; gap: 0.1rem; list-style: none; }
+    .nav-sections a {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 500;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-sections a:hover { color: var(--accent); background: var(--accent-light); text-decoration: none; }
+
+    .page { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+    .hero {
+      position: relative;
+      height: 420px;
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+    .hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(15,10,40,0.88) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2.5rem;
+    }
+    .hero-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.6rem;
+    }
+    .hero h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+      max-width: 620px;
+      margin-bottom: 1rem;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.65);
+    }
+    .hero-meta span { display: flex; align-items: center; gap: 0.3rem; }
+
+    .section-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    #overview { margin-bottom: 3rem; }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .stat-box {
+      text-align: center;
+      background: var(--accent-light);
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      padding: 1rem 0.75rem;
+    }
+    .stat-box .s-n {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .stat-box .s-l { font-size: 0.68rem; color: var(--muted); font-weight: 500; line-height: 1.3; }
+
+    .overview-block {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+    }
+    .overview-block h4 {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .overview-block p { font-size: 0.875rem; color: var(--text); line-height: 1.7; }
+    .overview-block p + p { margin-top: 0.6rem; }
+
+    hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+    #methodology { margin-bottom: 3rem; }
+    .stage { display: grid; grid-template-columns: 44px 1fr; gap: 0 1rem; }
+    .stage-left { display: flex; flex-direction: column; align-items: center; }
+    .stage-num {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .stage-line { width: 2px; flex: 1; background: var(--border); margin: 6px 0; min-height: 20px; }
+    .stage-content { padding-bottom: 2.5rem; }
+    .stage-title { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 1.1rem; margin-top: 5px; }
+
+    .field { margin-bottom: 0.9rem; }
+    .field-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+    .field-text { font-size: 0.9rem; color: #374151; line-height: 1.65; }
+
+    .why-box {
+      background: var(--bg-subtle);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 0.85rem 1.1rem;
+      margin-top: 0.75rem;
+    }
+    .why-box .field-label { color: var(--accent); }
+    .why-box .field-text { font-style: italic; font-size: 0.875rem; }
+
+    .stage-img {
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 1.1rem 0;
+      border: 1px solid var(--border);
+    }
+    .stage-img img { width: 100%; display: block; object-fit: cover; max-height: 280px; }
+    .stage-img.contain img { object-fit: contain; background: #f8f8fc; max-height: 240px; }
+    .img-caption {
+      padding: 0.55rem 0.85rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      background: var(--bg-subtle);
+      border-top: 1px solid var(--border);
+      line-height: 1.5;
+    }
+
+    #my-role { margin-bottom: 3rem; }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.25rem; }
+      .stat-row { grid-template-columns: repeat(2, 1fr); }
+      .nav-sections { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to Portfolio
+      </a>
+      <ul class="nav-sections">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#my-role">My Role</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <img src="vr2.jpg" alt="VR-based training intervention" />
+    <div class="hero-overlay">
+      <div class="hero-tag">Sports Biomechanics &middot; Cardiff Metropolitan University &middot; 2022–Present</div>
+      <h1>Acute Effects of a Virtual Reality Intervention on Landing Biomechanics in Youth Female Athletes</h1>
+      <div class="hero-meta">
+        <span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          Youth Female Athletes
+        </span>
+        <span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Pre-Post Intervention Study
+        </span>
+        <span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Manuscript in Preparation
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+
+    <section id="overview">
+      <p class="section-label">Overview</p>
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="s-n">2</div>
+          <div class="s-l">Risk Groups (High / Low)</div>
+        </div>
+        <div class="stat-box">
+          <div class="s-n">DVJ</div>
+          <div class="s-l">Drop Vertical Jump Task</div>
+        </div>
+        <div class="stat-box">
+          <div class="s-n">VR</div>
+          <div class="s-l">Oculus Quest 2</div>
+        </div>
+        <div class="stat-box">
+          <div class="s-n">25</div>
+          <div class="s-l">Biomechanical Variables</div>
+        </div>
+      </div>
+      <div class="overview-block" style="margin-top:1rem;">
+        <h4>Context</h4>
+        <p>Neuromuscular training programmes are the most widely used approach for reducing ACL injury risk in youth female athletes, yet evidence for their effectiveness on landing biomechanics remains equivocal. Challenges around adherence, accessibility, and the need for specialist supervision further limit their real-world uptake. Virtual reality offers a novel alternative: it delivers real-time, immersive feedback without requiring constant expert instruction and can be deployed remotely, addressing the practical barriers that undermine traditional programmes.</p>
+        <p>Before the efficacy of long-term VR programmes can be evaluated, it is necessary to first establish whether an acute VR intervention can produce meaningful changes in landing biomechanics, and whether athletes classified as high-risk respond differently from those classified as low-risk. This study aimed to examine the acute effects of a VR-based squatting intervention on lower-limb kinematics and kinetics during both landing phases of the drop vertical jump, using a targeted classification approach based on an established biomechanical risk factor for ACL injury.</p>
+      </div>
+    </section>
+
+    <hr />
+
+    <section id="methodology">
+      <p class="section-label" style="font-size:0.8rem;margin-bottom:1.5rem;">Study Design</p>
+
+      <!-- Stage 1 -->
+      <div class="stage">
+        <div class="stage-left">
+          <div class="stage-num">1</div>
+          <div class="stage-line"></div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-title">Participant Classification: High-Risk and Low-Risk</div>
+
+          <div class="field">
+            <div class="field-label">Process</div>
+            <div class="field-text">Youth female athletes aged 7–18 competing in multidirectional sports were recruited, with no lower-limb injury in the preceding six months and no history of ACL injury. A knee flexion angle threshold of 78° during the drop vertical jump was used to classify each participant as high-risk (below 78°) or low-risk (above 78°) for each landing phase independently. This threshold was selected based on prospective evidence comparing peak knee flexion angles between ACL-injured and uninjured athletes, and was supported by the good absolute reliability of this variable established in Chapter 3. Standard error of measurement was further reduced by averaging three trials per participant. A t-test confirmed no significant difference between knee flexion angles during the first and second landing phases, supporting the use of a single threshold across both.</div>
+          </div>
+
+          <div class="why-box">
+            <div class="field-label">Why a targeted classification approach?</div>
+            <div class="field-text">Applying an intervention uniformly across an entire squad means that athletes who already demonstrate safe landing mechanics are unlikely to show change, which dilutes the apparent effectiveness of the programme at the group level. Classifying athletes as high-risk or low-risk prior to intervention allowed the analysis to determine whether VR-based feedback produces greater biomechanical change in those who need it most, providing a more precise test of the technology's potential.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 2 -->
+      <div class="stage">
+        <div class="stage-left">
+          <div class="stage-num">2</div>
+          <div class="stage-line"></div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-title">Data Collection: Drop Vertical Jump Protocol</div>
+
+          <div class="field">
+            <div class="field-label">Process</div>
+            <div class="field-text">Participants completed the drop vertical jump (DVJ) pre- and post-intervention. Starting from a 30 cm box with feet 30 cm apart, athletes dropped to land bilaterally on two Kistler force plates, immediately performed a maximal vertical jump, then landed a second time and stabilised. All jumps were performed with arms akimbo, and a countdown of "3, 2, 1, go" was given with no verbal encouragement during the task. Trials were rejected for hands leaving hips, slow countermovement, unstable landing, knee or ankle tucking, or contralateral limb contact. Three successful trials were recorded per session. Both the first and second landing phases were analysed, capturing 16 kinematic variables (8 at initial contact, 8 at peak) and 9 kinetic variables at the hip, knee, and ankle.</div>
+          </div>
+
+          <div class="why-box">
+            <div class="field-label">Why both landing phases?</div>
+            <div class="field-text">The first landing of the DVJ is the most studied phase for ACL injury risk screening, with prospective evidence linking reduced knee flexion to future injury. However, the second landing exposes greater limb asymmetry and reduced hip and knee flexion loading, and has been highlighted as an important yet underexplored phase for risk assessment. Analysing both phases provided a more complete picture of how the VR intervention influenced overall landing strategy.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 3 -->
+      <div class="stage">
+        <div class="stage-left">
+          <div class="stage-num">3</div>
+          <div class="stage-line"></div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-title">Acute VR Intervention: Immersive Squatting Protocol</div>
+
+          <div class="field">
+            <div class="field-label">Process</div>
+            <div class="field-text">The VR intervention used the Oculus Quest 2 head-mounted display with a custom-built squatting protocol developed in Unity. Participants were first shown a virtual boundary (blue circle) for safety; stepping outside it paused the programme and triggered an augmented reality view. Prior to the protocol, each participant set their personal squat depth by lowering until their thighs were parallel to the ground. During the intervention, a blue virtual ring projected around a virtual pole provided real-time visual feedback on postural alignment: the ring remained blue for correct posture and transitioned to red for excessive lateral sway or anterior-posterior trunk lean, reaching dark red at maximum deviation. The protocol consisted of three sets of 10 bodyweight squats with two minutes rest between sets. The VR display was mirrored onto an iPad for the investigator to guide participants throughout.</div>
+          </div>
+
+          <div class="why-box">
+            <div class="field-label">Why VR-based squatting for landing biomechanics?</div>
+            <div class="field-text">Reduced knee flexion during jump-landing is directly linked to elevated ACL loads and higher vertical ground reaction forces. Squatting to depth in VR was selected because it trains sagittal plane knee flexion mechanics in an immersive, self-regulated environment that does not require a specialist to be present. The real-time colour-coded postural feedback leverages principles of augmented feedback and motor learning, enabling participants to immediately detect and correct sub-optimal movement patterns. The goal was not to replicate a jump in VR, but to prime neuromuscular control of knee flexion depth before returning to the jump task.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 4 -->
+      <div class="stage">
+        <div class="stage-left">
+          <div class="stage-num">4</div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-title">Statistical Analysis: Discrete and Waveform Approaches</div>
+
+          <div class="field">
+            <div class="field-label">Process</div>
+            <div class="field-text">A 2 (group: high-risk vs low-risk) x 2 (time: pre vs post) repeated-measures ANOVA examined between-group interactions across all kinematic and kinetic variables. Within-group comparisons used a repeated-measures general linear model, with Bonferroni and Games-Howell post-hoc tests for multiple comparisons and potential unequal variances. Effect sizes were reported as Hedge's g, categorised as trivial, small, moderate, large, very large, or extremely large. For the waveform analysis, SPM1D was applied to time-normalised data from both landing phases using spm1d in MATLAB, with a one-way ANOVA to detect within-group differences pre- and post-intervention.</div>
+          </div>
+
+          <div class="why-box">
+            <div class="field-label">Why Hedge's g over Cohen's d?</div>
+            <div class="field-text">Hedge's g applies a correction factor for small sample sizes that Cohen's d does not, making it a more appropriate effect size estimator when group sizes are unequal or limited, as is the case with the high-risk and low-risk subgroups in this study. Reporting effect sizes alongside significance values was important here because the primary interest was not simply whether change occurred, but the magnitude and practical relevance of any intervention-driven change in landing mechanics.</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <hr />
+
+    <section id="my-role">
+      <p class="section-label" style="font-size:0.8rem;margin-bottom:1.5rem;">My Role</p>
+      <ul style="list-style:disc;padding-left:1.25rem;font-size:0.9rem;color:#374151;line-height:2;">
+        <li>Study design and ethical approval</li>
+        <li>Participant risk classification using knee flexion threshold</li>
+        <li>DVJ data collection using Theia3D and Kistler force plates</li>
+        <li>VR intervention delivery and participant guidance</li>
+        <li>Post-processing in Theia3D and Visual3D including inverse dynamics</li>
+        <li>Repeated-measures ANOVA and effect size analysis</li>
+        <li>SPM1D waveform analysis in MATLAB</li>
+      </ul>
+    </section>
+
+  </div>
+
+</body>
+</html>
