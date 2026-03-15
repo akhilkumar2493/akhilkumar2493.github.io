@@ -167,10 +167,9 @@ main {
 .profile-photo img {
   width: 140px;
   height: 140px;
-  border-radius: 50%;
+  border-radius: 12px;
   object-fit: cover;
-  border: 3px solid white;
-  box-shadow: 0 0 0 3px var(--accent-border), var(--shadow-md);
+  box-shadow: var(--shadow-md);
 }
 
 .profile-photo .photo-placeholder {
