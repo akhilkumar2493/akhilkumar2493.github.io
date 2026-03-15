@@ -664,6 +664,38 @@ section h2::before {
   flex-shrink: 0;
 }
 
+/* Modal-specific step colours */
+.mj-1 { border-color: #c4b5fd !important; background: #faf5ff !important; }
+.mj-2 { border-color: #93c5fd !important; background: #eff6ff !important; }
+.mj-3 { border-color: #6ee7b7 !important; background: #f0fdf4 !important; }
+.mj-4 { border-color: #fcd34d !important; background: #fffbeb !important; }
+.mj-5 { border-color: #86efac !important; background: #f0fdf4 !important; }
+
+/* Findings mini-grid */
+.findings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+.finding-item {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 0.6rem 0.7rem;
+}
+.finding-item .fi-val {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.finding-item .fi-label {
+  font-size: 0.68rem;
+  color: var(--muted);
+  margin-top: 0.15rem;
+  line-height: 1.35;
+}
+
 .journey-impact {
   padding: 0.8rem 1rem;
   border-radius: 7px;
