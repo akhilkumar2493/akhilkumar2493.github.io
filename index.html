@@ -172,25 +172,55 @@
         <div class="proj-card" onclick="openModal('modal-mocap')">
           <div class="proj-card-visual vis-purple">
             <svg width="130" height="82" viewBox="0 0 130 82" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Human silhouette -->
-  <circle cx="65" cy="9" r="7" fill="white" fill-opacity="0.82"/>
-  <path d="M62,16 C55,18 44,19 42,21 C36,28 34,36 36,44 L38,52 L41,51 L41,38 C44,30 49,26 50,28 L50,44 C50,48 50,52 51,53 L48,65 L46,79 L55,79 L57,65 L57,55 L65,55 L73,55 L73,65 L75,79 L84,79 L82,65 L79,53 C80,52 80,48 80,44 L80,28 C81,26 86,30 89,38 L89,51 L92,52 L94,44 C96,36 94,28 88,21 C86,19 75,18 68,16 Z" fill="white" fill-opacity="0.82"/>
-  <!-- Motion capture tracking dots -->
-  <circle cx="50" cy="22" r="2.2" fill="white" opacity="0.55"/>
-  <circle cx="80" cy="22" r="2.2" fill="white" opacity="0.55"/>
-  <circle cx="36" cy="44" r="2.2" fill="white" opacity="0.55"/>
-  <circle cx="94" cy="44" r="2.2" fill="white" opacity="0.55"/>
-  <circle cx="51" cy="53" r="2.2" fill="white" opacity="0.55"/>
-  <circle cx="79" cy="53" r="2.2" fill="white" opacity="0.55"/>
-  <circle cx="48" cy="65" r="2.2" fill="white" opacity="0.55"/>
-  <circle cx="82" cy="65" r="2.2" fill="white" opacity="0.55"/>
+  <!-- Head -->
+  <circle cx="65" cy="10" r="7" fill="white" fill-opacity="0.8"/>
+  <!-- Body: shoulders, torso, arms, legs — full silhouette -->
+  <path d="
+    M 62,17
+    C 57,19 48,20 44,22
+    C 40,28 37,36 38,42
+    C 38,48 39,52 40,54
+    C 40,56 42,58 44,57
+    C 46,56 47,53 46,48
+    C 47,40 49,32 52,28
+    L 52,50
+    C 52,52 51,54 50,56
+    L 47,69
+    C 46,73 45,76 45,79
+    L 57,79
+    C 57,76 58,73 59,69
+    L 65,56
+    L 71,69
+    C 72,73 73,76 73,79
+    L 85,79
+    C 85,76 84,73 83,69
+    L 80,56
+    C 79,54 78,52 78,50
+    L 78,28
+    C 81,32 83,40 84,48
+    C 83,53 84,56 86,57
+    C 88,58 90,56 90,54
+    C 91,52 92,48 92,42
+    C 93,36 90,28 86,22
+    C 82,20 73,19 68,17
+    Z
+  " fill="white" fill-opacity="0.8"/>
+  <!-- Tracking dots at key joints -->
+  <circle cx="44" cy="22" r="2.2" fill="white" opacity="0.55"/>
+  <circle cx="86" cy="22" r="2.2" fill="white" opacity="0.55"/>
+  <circle cx="38" cy="44" r="2.2" fill="white" opacity="0.55"/>
+  <circle cx="92" cy="44" r="2.2" fill="white" opacity="0.55"/>
+  <circle cx="50" cy="56" r="2.2" fill="white" opacity="0.55"/>
+  <circle cx="80" cy="56" r="2.2" fill="white" opacity="0.55"/>
+  <circle cx="47" cy="69" r="2.2" fill="white" opacity="0.55"/>
+  <circle cx="83" cy="69" r="2.2" fill="white" opacity="0.55"/>
   <!-- Scan lines -->
-  <line x1="8" y1="22" x2="20" y2="22" stroke="white" stroke-width="0.75" opacity="0.4" stroke-dasharray="2 2"/>
-  <line x1="110" y1="22" x2="122" y2="22" stroke="white" stroke-width="0.75" opacity="0.4" stroke-dasharray="2 2"/>
-  <line x1="8" y1="44" x2="20" y2="44" stroke="white" stroke-width="0.75" opacity="0.4" stroke-dasharray="2 2"/>
-  <line x1="110" y1="44" x2="122" y2="44" stroke="white" stroke-width="0.75" opacity="0.4" stroke-dasharray="2 2"/>
-  <line x1="8" y1="65" x2="20" y2="65" stroke="white" stroke-width="0.75" opacity="0.4" stroke-dasharray="2 2"/>
-  <line x1="110" y1="65" x2="122" y2="65" stroke="white" stroke-width="0.75" opacity="0.4" stroke-dasharray="2 2"/>
+  <line x1="8" y1="22" x2="22" y2="22" stroke="white" stroke-width="0.75" opacity="0.4" stroke-dasharray="2 2"/>
+  <line x1="108" y1="22" x2="122" y2="22" stroke="white" stroke-width="0.75" opacity="0.4" stroke-dasharray="2 2"/>
+  <line x1="8" y1="44" x2="22" y2="44" stroke="white" stroke-width="0.75" opacity="0.4" stroke-dasharray="2 2"/>
+  <line x1="108" y1="44" x2="122" y2="44" stroke="white" stroke-width="0.75" opacity="0.4" stroke-dasharray="2 2"/>
+  <line x1="8" y1="69" x2="22" y2="69" stroke="white" stroke-width="0.75" opacity="0.4" stroke-dasharray="2 2"/>
+  <line x1="108" y1="69" x2="122" y2="69" stroke="white" stroke-width="0.75" opacity="0.4" stroke-dasharray="2 2"/>
 </svg>
           </div>
           <div class="proj-card-body">
