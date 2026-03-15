@@ -167,128 +167,267 @@
     <!-- Projects / Research -->
     <section id="projects">
       <h2>Projects</h2>
-      <div class="project-list">
+      <div class="proj-grid">
 
-        <div class="proj-card">
-          <div class="proj-visual vis-purple">
-            <span class="proj-icon">📹</span>
-            <span class="proj-type">Applied Research &amp; Automation</span>
+        <div class="proj-card" onclick="openModal('modal-mocap')">
+          <div class="proj-card-visual vis-purple">
+            <span class="proj-card-icon">📹</span>
           </div>
-          <div class="proj-content">
-            <div>
-              <div class="proj-tags">
-                <span class="jtag jtag-applied">Applied Research</span>
-                <span class="jtag jtag-applied">Automation</span>
-                <span class="jtag jtag-year">2022 – Present</span>
-              </div>
-              <h3>Markerless Motion Capture Validation</h3>
-              <p class="proj-outcome">Validated the Theia3D markerless system against gold-standard Vicon across 30+ participants. Built automated pipelines reducing processing time by 70% across 1,500+ trials.</p>
-              <p class="proj-tools"><span>Tools:</span> Theia3D · Vicon · MATLAB · R · Visual3D</p>
-            </div>
-            <div class="proj-links">
-              <a href="https://scholar.google.com/citations?user=wJAbYaUAAAAJ&hl=en" target="_blank" rel="noopener" class="proj-link">Manuscript in Prep</a>
-              <a href="https://akhilkumar2493.github.io#cv" class="proj-link secondary">Cardiff Met · 2022–Present</a>
-            </div>
+          <div class="proj-card-body">
+            <div class="proj-tags"><span class="jtag jtag-applied">Applied Research</span><span class="jtag jtag-applied">Automation</span></div>
+            <h3>Freeing Movement Analysis from the Lab</h3>
+            <p>Markerless Motion Capture Validation</p>
+            <span class="proj-explore">Explore project &rarr;</span>
           </div>
         </div>
 
-        <div class="proj-card">
-          <div class="proj-visual vis-blue">
-            <span class="proj-icon">🦵</span>
-            <span class="proj-type">Biomechanics &amp; Injury Prevention</span>
+        <div class="proj-card" onclick="openModal('modal-acl')">
+          <div class="proj-card-visual vis-blue">
+            <span class="proj-card-icon">🦵</span>
           </div>
-          <div class="proj-content">
-            <div>
-              <div class="proj-tags">
-                <span class="jtag jtag-research">Research</span>
-                <span class="jtag jtag-research">Biomechanical Modelling</span>
-                <span class="jtag jtag-year">2022 – Present</span>
-              </div>
-              <h3>ACL Injury Prevention in Youth Female Athletes</h3>
-              <p class="proj-outcome">Identified knee injury risk patterns across maturation stages in 100+ participants using biomechanical modelling, translating findings into evidence-based screening and prevention strategies.</p>
-              <p class="proj-tools"><span>Tools:</span> Motion Capture · Biomechanical Modelling · R · SPSS</p>
-            </div>
-            <div class="proj-links">
-              <a href="https://link.springer.com/article/10.1007/s40279-025-02176-8" target="_blank" rel="noopener" class="proj-link">Paper · Sports Medicine 2025</a>
-              <a href="https://link.springer.com/article/10.1007/s40279-024-02020-5" target="_blank" rel="noopener" class="proj-link">Paper · Sports Medicine 2024</a>
-              <a href="https://scholar.google.com/citations?user=wJAbYaUAAAAJ&hl=en" target="_blank" rel="noopener" class="proj-link secondary">Scholar</a>
-            </div>
+          <div class="proj-card-body">
+            <div class="proj-tags"><span class="jtag jtag-research">Research</span><span class="jtag jtag-research">Biomechanical Modelling</span></div>
+            <h3>Predicting ACL Injuries Before They Happen</h3>
+            <p>Biomechanics &amp; Injury Prevention in Youth Athletes</p>
+            <span class="proj-explore">Explore project &rarr;</span>
           </div>
         </div>
 
-        <div class="proj-card">
-          <div class="proj-visual vis-green">
-            <span class="proj-icon">🥽</span>
-            <span class="proj-type">UX Prototyping &amp; Applied Technology</span>
+        <div class="proj-card" onclick="openModal('modal-vr')">
+          <div class="proj-card-visual vis-green">
+            <span class="proj-card-icon">🥽</span>
           </div>
-          <div class="proj-content">
-            <div>
-              <div class="proj-tags">
-                <span class="jtag jtag-ux">UX Prototyping</span>
-                <span class="jtag jtag-ux">Applied Technology</span>
-                <span class="jtag jtag-year">2022 – Present</span>
-              </div>
-              <h3>VR Kinematic Feedback System</h3>
-              <p class="proj-outcome">Designed and deployed Meta Quest 3 VR prototypes delivering real-time kinematic feedback during dynamic athletic tasks — producing a measurable 10% improvement in movement performance across 30+ participants.</p>
-              <p class="proj-tools"><span>Tools:</span> Meta Quest 3 · Theia · MATLAB · R</p>
-            </div>
-            <div class="proj-links">
-              <a href="https://scholar.google.com/citations?user=wJAbYaUAAAAJ&hl=en" target="_blank" rel="noopener" class="proj-link">Manuscript in Prep</a>
-              <a href="https://akhilkumar2493.github.io#cv" class="proj-link secondary">Cardiff Met · Meta Quest 3</a>
-            </div>
+          <div class="proj-card-body">
+            <div class="proj-tags"><span class="jtag jtag-ux">UX Prototyping</span><span class="jtag jtag-ux">Applied Technology</span></div>
+            <h3>Real-Time Coaching Through Virtual Reality</h3>
+            <p>VR Kinematic Feedback System</p>
+            <span class="proj-explore">Explore project &rarr;</span>
           </div>
         </div>
 
-        <div class="proj-card">
-          <div class="proj-visual vis-amber">
-            <span class="proj-icon">📡</span>
-            <span class="proj-type">Data Science &amp; Wearable Sensors</span>
+        <div class="proj-card" onclick="openModal('modal-gps')">
+          <div class="proj-card-visual vis-amber">
+            <span class="proj-card-icon">📡</span>
           </div>
-          <div class="proj-content">
-            <div>
-              <div class="proj-tags">
-                <span class="jtag jtag-data">Data Science</span>
-                <span class="jtag jtag-data">Wearable Sensors</span>
-                <span class="jtag jtag-year">2021 – 2022</span>
-              </div>
-              <h3>GPS &amp; Wearable Athlete Monitoring</h3>
-              <p class="proj-outcome">Deployed MEMS-GPS sensors across 20+ elite footballers over a 48-week season. Processed 400+ longitudinal records and built personalised workload models — workload and maturity explain 55% of performance variance.</p>
-              <p class="proj-tools"><span>Tools:</span> MEMS-GPS Sensors · MATLAB · R · Regression Modelling</p>
-            </div>
-            <div class="proj-links">
-              <a href="https://www.mdpi.com/2227-9032/10/8/1367" target="_blank" rel="noopener" class="proj-link">Paper · Healthcare 2022</a>
-              <a href="https://www.termedia.pl/The-influence-of-opponent-level-on-professional-soccer-players-training-and-match-performance-assessed-by-using-wearable-sensor-technology,78,45335,1,1.html" target="_blank" rel="noopener" class="proj-link">Paper · Human Movement 2022</a>
-              <a href="https://scholar.google.com/citations?user=wJAbYaUAAAAJ&hl=en" target="_blank" rel="noopener" class="proj-link secondary">Scholar</a>
-            </div>
+          <div class="proj-card-body">
+            <div class="proj-tags"><span class="jtag jtag-data">Data Science</span><span class="jtag jtag-data">Wearable Sensors</span></div>
+            <h3>A Full Season, Distilled into Data</h3>
+            <p>GPS &amp; Wearable Athlete Monitoring</p>
+            <span class="proj-explore">Explore project &rarr;</span>
           </div>
         </div>
 
-        <div class="proj-card">
-          <div class="proj-visual vis-red">
-            <span class="proj-icon">🏏</span>
-            <span class="proj-type">Research &amp; Performance Analysis</span>
+        <div class="proj-card" onclick="openModal('modal-cricket')">
+          <div class="proj-card-visual vis-red">
+            <span class="proj-card-icon">🏏</span>
           </div>
-          <div class="proj-content">
-            <div>
-              <div class="proj-tags">
-                <span class="jtag jtag-cricket">Research</span>
-                <span class="jtag jtag-cricket">Performance Analysis</span>
-                <span class="jtag jtag-year">2022 – 2024</span>
-              </div>
-              <h3>Cricket Biomechanics &amp; Performance</h3>
-              <p class="proj-outcome">Developed a novel correlational meta-analytic framework to identify biomechanical and physical determinants of fast bowling speed, directly translating findings into S&amp;C recommendations for elite cricket coaches.</p>
-              <p class="proj-tools"><span>Tools:</span> R · SPSS · Correlational Meta-analytic Framework</p>
-            </div>
-            <div class="proj-links">
-              <a href="https://www.tandfonline.com/doi/full/10.1080/14763141.2022.2079957" target="_blank" rel="noopener" class="proj-link">Paper · Sports Biomechanics 2024</a>
-              <a href="https://journals.sagepub.com/doi/10.1177/17479541221083500" target="_blank" rel="noopener" class="proj-link">Paper · IJSSC 2022</a>
-              <a href="https://scholar.google.com/citations?user=wJAbYaUAAAAJ&hl=en" target="_blank" rel="noopener" class="proj-link secondary">Scholar</a>
-            </div>
+          <div class="proj-card-body">
+            <div class="proj-tags"><span class="jtag jtag-cricket">Research</span><span class="jtag jtag-cricket">Performance Analysis</span></div>
+            <h3>The Physics Behind the Perfect Delivery</h3>
+            <p>Cricket Biomechanics &amp; Performance</p>
+            <span class="proj-explore">Explore project &rarr;</span>
           </div>
         </div>
 
       </div>
     </section>
+
+    <!-- Modals -->
+    <div id="modal-mocap" class="modal-overlay">
+      <div class="modal-box">
+        <div class="modal-header vis-purple">
+          <button class="modal-close" onclick="closeModal('modal-mocap')">&#x2715;</button>
+          <div class="modal-header-icon">📹</div>
+          <h2>Freeing Movement Analysis from the Lab</h2>
+          <p>Markerless Motion Capture Validation &middot; Cardiff Met &middot; 2022&ndash;Present</p>
+        </div>
+        <div class="modal-body">
+          <div class="stat-grid">
+            <div class="stat"><div class="stat-n">30+</div><div class="stat-l">Participants</div></div>
+            <div class="stat"><div class="stat-n">70%</div><div class="stat-l">Faster Processing</div></div>
+            <div class="stat"><div class="stat-n">1,500+</div><div class="stat-l">Trials Processed</div></div>
+          </div>
+          <div class="modal-section">
+            <h4>Background</h4>
+            <p>Traditional marker-based motion capture is the gold standard for measuring human movement, but it is time-intensive, lab-dependent, and requires significant post-processing. Markerless systems like Theia3D promise scalability for clinical and field use — but only if they can be shown to be accurate.</p>
+          </div>
+          <div class="modal-section">
+            <h4>Aim</h4>
+            <p>To determine the real-world accuracy and product readiness of a markerless motion capture system (Theia3D) across a range of dynamic movements, benchmarked against gold-standard Vicon marker-based capture.</p>
+          </div>
+          <div class="modal-section">
+            <h4>Methodology</h4>
+            <p>30+ participants performed a battery of dynamic movement tasks simultaneously captured by both Theia3D and Vicon. Key joint angles were extracted and agreement, reliability, and validity were assessed using R and MATLAB. Automated processing pipelines were built to handle large trial volumes efficiently.</p>
+          </div>
+          <div class="modal-section highlight">
+            <h4>Results</h4>
+            <p>Strong agreement was found between Theia3D and Vicon across key joint angles during dynamic tasks. Automated pipelines reduced processing time by 70%, processing over 1,500 trials. The pipeline is now used as the standard lab workflow, and findings inform commercial product readiness assessment.</p>
+          </div>
+          <div class="modal-tools"><span>Tools:</span> Theia3D &middot; Vicon &middot; MATLAB &middot; R &middot; Visual3D</div>
+          <div class="modal-links">
+            <a href="https://scholar.google.com/citations?user=wJAbYaUAAAAJ&hl=en" target="_blank" rel="noopener" class="proj-link">Manuscript in Prep</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-acl" class="modal-overlay">
+      <div class="modal-box">
+        <div class="modal-header vis-blue">
+          <button class="modal-close" onclick="closeModal('modal-acl')">&#x2715;</button>
+          <div class="modal-header-icon">🦵</div>
+          <h2>Predicting ACL Injuries Before They Happen</h2>
+          <p>Biomechanics &amp; Injury Prevention &middot; Cardiff Met &middot; 2022&ndash;Present</p>
+        </div>
+        <div class="modal-body">
+          <div class="stat-grid">
+            <div class="stat"><div class="stat-n">100+</div><div class="stat-l">Participants</div></div>
+            <div class="stat"><div class="stat-n">2,400+</div><div class="stat-l">Papers Screened</div></div>
+            <div class="stat"><div class="stat-n">2</div><div class="stat-l">Publications</div></div>
+          </div>
+          <div class="modal-section">
+            <h4>Background</h4>
+            <p>ACL injuries are among the most serious in youth sport, with female athletes at significantly higher risk — particularly during puberty. Despite growing evidence, the movement patterns and maturation-related mechanisms that drive this risk are not well understood at a population level.</p>
+          </div>
+          <div class="modal-section">
+            <h4>Aim</h4>
+            <p>To identify knee injury risk patterns in youth female athletes using biomechanical modelling, and translate statistical findings into actionable screening and prevention strategies for coaches and clinicians.</p>
+          </div>
+          <div class="modal-section">
+            <h4>Methodology</h4>
+            <p>Large-scale quantitative studies with 100+ participants combined motion capture data with biomechanical modelling to quantify knee loading during dynamic movement tasks. Statistical analysis in R and SPSS. Findings were validated against clinical screening tools and mapped to prevention programme design.</p>
+          </div>
+          <div class="modal-section highlight">
+            <h4>Results</h4>
+            <p>Distinct knee injury risk patterns were identified across maturation stages. Neuromuscular training was found to significantly reduce knee valgus and improve landing mechanics. Findings translated into evidence-based screening protocols and published in Sports Medicine (2024, 2025).</p>
+          </div>
+          <div class="modal-tools"><span>Tools:</span> Motion Capture &middot; Biomechanical Modelling &middot; R &middot; SPSS</div>
+          <div class="modal-links">
+            <a href="https://link.springer.com/article/10.1007/s40279-025-02176-8" target="_blank" rel="noopener" class="proj-link">Paper &middot; Sports Medicine 2025</a>
+            <a href="https://link.springer.com/article/10.1007/s40279-024-02020-5" target="_blank" rel="noopener" class="proj-link">Paper &middot; Sports Medicine 2024</a>
+            <a href="https://scholar.google.com/citations?user=wJAbYaUAAAAJ&hl=en" target="_blank" rel="noopener" class="proj-link secondary">Google Scholar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-vr" class="modal-overlay">
+      <div class="modal-box">
+        <div class="modal-header vis-green">
+          <button class="modal-close" onclick="closeModal('modal-vr')">&#x2715;</button>
+          <div class="modal-header-icon">🥽</div>
+          <h2>Real-Time Coaching Through Virtual Reality</h2>
+          <p>VR Kinematic Feedback System &middot; Cardiff Met &middot; 2022&ndash;Present</p>
+        </div>
+        <div class="modal-body">
+          <div class="stat-grid">
+            <div class="stat"><div class="stat-n">30+</div><div class="stat-l">Participants</div></div>
+            <div class="stat"><div class="stat-n">10%</div><div class="stat-l">Performance Improvement</div></div>
+            <div class="stat"><div class="stat-n">Meta<br>Quest 3</div><div class="stat-l">Platform</div></div>
+          </div>
+          <div class="modal-section">
+            <h4>Background</h4>
+            <p>Athletes typically receive feedback about their movement after the fact — through video review or verbal coaching. Real-time feedback during the movement itself has the potential to accelerate skill acquisition and reduce injury risk, but applied VR tools in sport science remain limited.</p>
+          </div>
+          <div class="modal-section">
+            <h4>Aim</h4>
+            <p>To design and deploy a VR-based system using Meta Quest 3 that delivers real-time kinematic feedback during dynamic athletic tasks, and measure its effect on movement performance across participants.</p>
+          </div>
+          <div class="modal-section">
+            <h4>Methodology</h4>
+            <p>End-to-end prototype design and deployment using Meta Quest 3. Kinematic data was captured during movement and fed back in real time through VR overlays. Tested across 30+ participants on dynamic movement tasks, with pre- and post-performance measures collected and analysed in MATLAB and R.</p>
+          </div>
+          <div class="modal-section highlight">
+            <h4>Results</h4>
+            <p>Real-time VR feedback produced a measurable 10% improvement in movement performance across participants. Findings support VR as a viable, scalable feedback tool in applied sport science. Manuscript currently in preparation.</p>
+          </div>
+          <div class="modal-tools"><span>Tools:</span> Meta Quest 3 &middot; Theia &middot; MATLAB &middot; R</div>
+          <div class="modal-links">
+            <a href="https://scholar.google.com/citations?user=wJAbYaUAAAAJ&hl=en" target="_blank" rel="noopener" class="proj-link">Manuscript in Prep</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-gps" class="modal-overlay">
+      <div class="modal-box">
+        <div class="modal-header vis-amber">
+          <button class="modal-close" onclick="closeModal('modal-gps')">&#x2715;</button>
+          <div class="modal-header-icon">📡</div>
+          <h2>A Full Season, Distilled into Data</h2>
+          <p>GPS &amp; Wearable Athlete Monitoring &middot; Univ. of Los Lagos, Chile &middot; 2021&ndash;2022</p>
+        </div>
+        <div class="modal-body">
+          <div class="stat-grid">
+            <div class="stat"><div class="stat-n">20+</div><div class="stat-l">Elite Athletes</div></div>
+            <div class="stat"><div class="stat-n">48</div><div class="stat-l">Week Season</div></div>
+            <div class="stat"><div class="stat-n">55%</div><div class="stat-l">Performance Variance Explained</div></div>
+          </div>
+          <div class="modal-section">
+            <h4>Background</h4>
+            <p>Managing athlete workload across a long competitive season is critical for both performance and injury prevention. Wearable GPS and MEMS sensor data offers a high-resolution, individualised view of athlete load — but only if supported by robust pipelines and validated predictive models.</p>
+          </div>
+          <div class="modal-section">
+            <h4>Aim</h4>
+            <p>To deploy wearable sensors across a full elite football season, process longitudinal athlete data, and build personalised workload models that provide coaching staff with validated, actionable performance predictions.</p>
+          </div>
+          <div class="modal-section">
+            <h4>Methodology</h4>
+            <p>MEMS-GPS sensors were deployed across 20+ elite footballers for a 48-week competitive season. Over 400 longitudinal athlete records were cleaned and processed in MATLAB and R, covering physical load, cardiovascular intensity, sprint velocity, and acceleration. Regression modelling was used to identify key performance predictors.</p>
+          </div>
+          <div class="modal-section highlight">
+            <h4>Results</h4>
+            <p>Workload and maturity status were found to explain 55% of performance variance. Personalised workload models improved training individualisation and recovery decisions. Findings published in Healthcare (2022) and Human Movement (2022).</p>
+          </div>
+          <div class="modal-tools"><span>Tools:</span> MEMS-GPS Sensors &middot; MATLAB &middot; R &middot; Regression Modelling</div>
+          <div class="modal-links">
+            <a href="https://www.mdpi.com/2227-9032/10/8/1367" target="_blank" rel="noopener" class="proj-link">Paper &middot; Healthcare 2022</a>
+            <a href="https://www.termedia.pl/The-influence-of-opponent-level-on-professional-soccer-players-training-and-match-performance-assessed-by-using-wearable-sensor-technology,78,45335,1,1.html" target="_blank" rel="noopener" class="proj-link">Paper &middot; Human Movement 2022</a>
+            <a href="https://scholar.google.com/citations?user=wJAbYaUAAAAJ&hl=en" target="_blank" rel="noopener" class="proj-link secondary">Google Scholar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-cricket" class="modal-overlay">
+      <div class="modal-box">
+        <div class="modal-header vis-red">
+          <button class="modal-close" onclick="closeModal('modal-cricket')">&#x2715;</button>
+          <div class="modal-header-icon">🏏</div>
+          <h2>The Physics Behind the Perfect Delivery</h2>
+          <p>Cricket Biomechanics &amp; Performance &middot; 2022&ndash;2024</p>
+        </div>
+        <div class="modal-body">
+          <div class="stat-grid">
+            <div class="stat"><div class="stat-n">Novel</div><div class="stat-l">Analytic Framework</div></div>
+            <div class="stat"><div class="stat-n">2</div><div class="stat-l">Publications</div></div>
+            <div class="stat"><div class="stat-n">Elite</div><div class="stat-l">S&amp;C Recommendations</div></div>
+          </div>
+          <div class="modal-section">
+            <h4>Background</h4>
+            <p>Fast bowling speed is a critical performance determinant in cricket, yet the biomechanical and physical factors that predict it had never been systematically quantified using correlational evidence across the literature. Coaching decisions were largely based on intuition rather than data.</p>
+          </div>
+          <div class="modal-section">
+            <h4>Aim</h4>
+            <p>To identify biomechanical and physical determinants of fast bowling speed in cricket and translate findings into evidence-based strength and conditioning recommendations that coaches and practitioners can act on.</p>
+          </div>
+          <div class="modal-section">
+            <h4>Methodology</h4>
+            <p>A novel correlational meta-analytic framework was developed and applied to the cricket biomechanics literature. A systematic search was conducted across major databases. Correlational data was pooled and analysed in R and SPSS, and findings were mapped directly to strength and conditioning programming principles.</p>
+          </div>
+          <div class="modal-section highlight">
+            <h4>Results</h4>
+            <p>Hip-shoulder separation and run-up velocity were identified as the strongest predictors of bowling speed. The novel framework was validated and subsequently adopted in related research. Published in Sports Biomechanics (2024) and International Journal of Sports Science &amp; Coaching (2022).</p>
+          </div>
+          <div class="modal-tools"><span>Tools:</span> R &middot; SPSS &middot; Correlational Meta-analytic Framework</div>
+          <div class="modal-links">
+            <a href="https://www.tandfonline.com/doi/full/10.1080/14763141.2022.2079957" target="_blank" rel="noopener" class="proj-link">Paper &middot; Sports Biomechanics 2024</a>
+            <a href="https://journals.sagepub.com/doi/10.1177/17479541221083500" target="_blank" rel="noopener" class="proj-link">Paper &middot; IJSSC 2022</a>
+            <a href="https://scholar.google.com/citations?user=wJAbYaUAAAAJ&hl=en" target="_blank" rel="noopener" class="proj-link secondary">Google Scholar</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
         <!-- CV -->
     <section id="cv">
@@ -430,5 +569,33 @@
     Hosted on <a href="https://pages.github.com">GitHub Pages</a>
   </footer>
 
+  <script>
+    function openModal(id) {
+      document.getElementById(id).classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.open').forEach(function(m) {
+          m.classList.remove('open');
+        });
+        document.body.style.overflow = '';
+      }
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
