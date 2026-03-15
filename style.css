@@ -664,37 +664,89 @@ section h2::before {
   flex-shrink: 0;
 }
 
-/* Modal-specific step colours */
-.mj-1 { border-color: #c4b5fd !important; background: #faf5ff !important; }
-.mj-2 { border-color: #93c5fd !important; background: #eff6ff !important; }
-.mj-3 { border-color: #6ee7b7 !important; background: #f0fdf4 !important; }
-.mj-4 { border-color: #fcd34d !important; background: #fffbeb !important; }
-.mj-5 { border-color: #86efac !important; background: #f0fdf4 !important; }
+/* ===== Case Study Layout: Snapshot → Impact → Process ===== */
 
-/* Findings mini-grid */
-.findings-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.6rem;
-  margin-bottom: 1rem;
+.cs-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--accent);
+  margin-bottom: 0.45rem;
 }
-.finding-item {
+
+/* Snapshot */
+.snap-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+  margin-bottom: 1.1rem;
+}
+.snap-block {
   background: var(--bg-subtle);
   border: 1px solid var(--border);
-  border-radius: 7px;
-  padding: 0.6rem 0.7rem;
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
 }
-.finding-item .fi-val {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--accent);
+.snap-block p {
+  font-size: 0.835rem;
+  color: #374151;
+  line-height: 1.65;
+  margin: 0;
 }
-.finding-item .fi-label {
+
+/* Impact */
+.impact-box {
+  background: var(--accent-light);
+  border: 1px solid var(--accent-border);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.1rem;
+}
+.impact-box ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+.impact-box ul li {
+  font-size: 0.845rem;
+  color: #374151;
+  line-height: 1.65;
+  margin-bottom: 0.2rem;
+}
+.impact-box ul li:last-child { margin-bottom: 0; }
+
+/* Process */
+.process-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.1rem 0;
+}
+.process-list li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.845rem;
+  color: #374151;
+  line-height: 1.55;
+}
+.process-list li:last-child { border-bottom: none; }
+.process-num {
+  min-width: 22px;
+  height: 22px;
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.68rem;
-  color: var(--muted);
-  margin-top: 0.15rem;
-  line-height: 1.35;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
 }
+.process-list strong { color: var(--text); }
 
 .journey-impact {
   padding: 0.8rem 1rem;
