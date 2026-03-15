@@ -370,27 +370,27 @@
         </div>
         <div class="modal-body">
           <div class="stat-grid">
-            <div class="stat"><div class="stat-n">30+</div><div class="stat-l">Participants</div></div>
-            <div class="stat"><div class="stat-n">70%</div><div class="stat-l">Faster Processing</div></div>
-            <div class="stat"><div class="stat-n">1,500+</div><div class="stat-l">Trials Processed</div></div>
+            <div class="stat"><div class="stat-n">30</div><div class="stat-l">Participants</div></div>
+            <div class="stat"><div class="stat-n">4</div><div class="stat-l">Jump Tasks</div></div>
+            <div class="stat"><div class="stat-n">0.76&ndash;0.96</div><div class="stat-l">ICC (Sagittal Plane)</div></div>
           </div>
           <div class="modal-section">
             <h4>Background</h4>
-            <p>Traditional marker-based motion capture is the gold standard for measuring human movement, but it is time-intensive, lab-dependent, and requires significant post-processing. Markerless systems like Theia3D promise scalability for clinical and field use — but only if they can be shown to be accurate.</p>
+            <p>Markerless motion capture systems like Theia3D offer a scalable, non-invasive alternative to traditional marker-based capture for measuring jump-landing biomechanics. Before these systems can be adopted in clinical and field settings, their measurement reliability must be established — particularly in youth female athletes, a population disproportionately affected by ACL injuries where maturation can increase trial-to-trial variability.</p>
           </div>
           <div class="modal-section">
             <h4>Aim</h4>
-            <p>To determine the real-world accuracy and product readiness of a markerless motion capture system (Theia3D) across a range of dynamic movements, benchmarked against gold-standard Vicon marker-based capture.</p>
+            <p>To evaluate the within-session reliability of discrete and time-series kinematic and kinetic variables during four jump-landing tasks using a markerless motion capture system (Theia3D) in 30 youth female athletes, and to examine how reliability varied across maturity groups (pre-pubertal, pubertal, post-pubertal).</p>
           </div>
           <div class="modal-section">
             <h4>Methodology</h4>
-            <p>30+ participants performed a battery of dynamic movement tasks simultaneously captured by both Theia3D and Vicon. Key joint angles were extracted and agreement, reliability, and validity were assessed using R and MATLAB. Automated processing pipelines were built to handle large trial volumes efficiently.</p>
+            <p>Thirty young female athletes (10 per maturity group, classified by percentage of predicted adult height) performed three trials each of a countermovement jump (CMJ), drop vertical jump (DVJ), single-leg CMJ, and modified single-leg DVJ. An eight-camera Theia3D system captured kinematics at 100 Hz, synchronised with Kistler force plates at 1000 Hz. Relative reliability was assessed using ICC<sub>3,1</sub> and absolute reliability using SEM. Pointwise ICC and SEM were calculated across the full landing phase time-series using a two-way mixed ANOVA approach in R.</p>
           </div>
           <div class="modal-section highlight">
             <h4>Results</h4>
-            <p>Strong agreement was found between Theia3D and Vicon across key joint angles during dynamic tasks. Automated pipelines reduced processing time by 70%, processing over 1,500 trials. The pipeline is now used as the standard lab workflow, and findings inform commercial product readiness assessment.</p>
+            <p>Sagittal plane hip, knee, and ankle angles showed good-to-excellent relative reliability (ICC: 0.76–0.96) across tasks and limbs. Frontal and transverse plane measures were less consistent (ICC: 0.13–0.75), particularly at initial contact. Absolute reliability (SEM) was &lt;5&deg; for most frontal and transverse plane variables across all maturity groups, providing sufficient precision to detect clinically meaningful changes in ACL-relevant variables such as knee abduction angle. SEM was generally higher in the pre-pubertal group, underlining the need for maturity-adjusted thresholds when classifying injury risk in younger athletes.</p>
           </div>
-          <div class="modal-tools"><span>Tools:</span> Theia3D &middot; Vicon &middot; MATLAB &middot; R &middot; Visual3D</div>
+          <div class="modal-tools"><span>Tools:</span> Theia3D &middot; Visual3D &middot; Kistler Force Plates &middot; R &middot; SPSS</div>
           <div class="modal-links">
             <a href="https://scholar.google.com/citations?user=wJAbYaUAAAAJ&hl=en" target="_blank" rel="noopener" class="proj-link">Manuscript in Prep</a>
           </div>
