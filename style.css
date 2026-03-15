@@ -167,9 +167,7 @@ main {
 .profile-photo img {
   width: 140px;
   height: 140px;
-  border-radius: 12px;
   object-fit: cover;
-  box-shadow: var(--shadow-md);
 }
 
 .profile-photo .photo-placeholder {
