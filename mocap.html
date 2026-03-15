@@ -432,19 +432,9 @@
 
   <div class="page">
 
-    <!-- Overview -->
+    <!-- Overview + Aim -->
     <section id="overview">
       <p class="section-label">Overview</p>
-      <div class="overview-grid">
-        <div class="overview-block">
-          <h4>Context</h4>
-          <p>Markerless motion capture systems offer a faster, non-invasive alternative to traditional marker-based systems for biomechanical analysis. Before they can be adopted in clinical and field settings for ACL injury risk screening, their measurement reliability must be rigorously established, particularly in youth female athletes where ongoing maturation introduces unique variability into movement patterns.</p>
-        </div>
-        <div class="overview-block">
-          <h4>What We Did</h4>
-          <p>We recruited 30 youth female athletes across three maturity groups and captured three trials each of four jump-landing tasks using an eight-camera Theia3D system synchronised with Kistler force plates. We examined within-session relative reliability (ICC) and absolute reliability (SEM) at discrete time points and across the full landing phase time-series, with a subgroup analysis by maturity.</p>
-        </div>
-      </div>
       <div class="stat-row">
         <div class="stat-box">
           <div class="s-n">30</div>
@@ -463,20 +453,23 @@
           <div class="s-l">Variables Analysed</div>
         </div>
       </div>
-    </section>
-
-    <hr />
-
-    <!-- Aim -->
-    <section id="aim">
-      <p class="section-label">Aim</p>
-      <div class="questions-grid">
+      <div class="overview-grid" style="margin-top:1rem;">
+        <div class="overview-block">
+          <h4>Context</h4>
+          <p>Markerless motion capture systems offer a faster, non-invasive alternative to traditional marker-based systems for biomechanical analysis. Before they can be adopted in clinical and field settings for ACL injury risk screening, their measurement reliability must be rigorously established, particularly in youth female athletes where ongoing maturation introduces unique variability into movement patterns.</p>
+        </div>
+        <div class="overview-block">
+          <h4>What We Did</h4>
+          <p>We recruited 30 youth female athletes across three maturity groups and captured three trials each of four jump-landing tasks using an eight-camera Theia3D system synchronised with Kistler force plates. We examined within-session relative reliability (ICC) and absolute reliability (SEM) at discrete time points and across the full landing phase time-series, with a subgroup analysis by maturity.</p>
+        </div>
+      </div>
+      <div class="questions-grid" style="margin-top:1rem;" id="aim">
         <div class="question-card">
-          <div class="q-num">Question 01</div>
+          <div class="q-num">Aim 01</div>
           <p>Does a markerless motion capture system (Theia3D) produce reliable measurements of lower-limb kinematics and kinetics during jump-landing tasks in youth female athletes?</p>
         </div>
         <div class="question-card">
-          <div class="q-num">Question 02</div>
+          <div class="q-num">Aim 02</div>
           <p>How does biological maturation (pre-pubertal, pubertal, and post-pubertal) influence the reliability of these measurements across discrete time points and the full landing phase waveform?</p>
         </div>
       </div>
@@ -486,7 +479,7 @@
 
     <!-- Methodology -->
     <section id="methodology">
-      <p class="section-label">Study Design</p>
+      <p class="section-label" style="font-size:0.8rem;margin-bottom:1.5rem;">Study Design</p>
 
       <!-- Stage 1 -->
       <div class="stage">
@@ -496,11 +489,6 @@
         </div>
         <div class="stage-content">
           <div class="stage-title">Participant Recruitment &amp; Maturity Classification</div>
-
-          <div class="field">
-            <div class="field-label">Motivation</div>
-            <div class="field-text">Youth female athletes are disproportionately affected by ACL injuries, with risk accelerating through puberty. Despite this, reliability data for markerless motion capture specifically in this population, stratified by biological maturity, was absent from the literature. Most reliability studies had used adult cohorts or mixed-sex samples, limiting clinical translation.</div>
-          </div>
 
           <div class="field">
             <div class="field-label">Constraints</div>
@@ -549,11 +537,6 @@
           <div class="stage-title">Data Collection: Jump-Landing Tasks</div>
 
           <div class="field">
-            <div class="field-label">Motivation</div>
-            <div class="field-text">The tasks selected needed to reflect the movement contexts in which non-contact ACL injuries most commonly occur: dynamic, multi-directional, and involving high-impact lower-limb loading. Both bilateral and unilateral loading conditions were necessary to capture the full range of clinical relevance.</div>
-          </div>
-
-          <div class="field">
             <div class="field-label">Constraints</div>
             <div class="tag-list">
               <span class="tag">Markerless: no post-hoc marker correction possible</span>
@@ -595,11 +578,6 @@
           <div class="stage-title">Data Processing &amp; Signal Filtering</div>
 
           <div class="field">
-            <div class="field-label">Motivation</div>
-            <div class="field-text">Raw kinematic data from markerless systems contains high-frequency noise, particularly during fast dynamic movements where video-based pose estimation can produce frame-to-frame instability. Filtering and standardisation were necessary to make data comparable across participants and tasks, and to enable a meaningful time-series analysis.</div>
-          </div>
-
-          <div class="field">
             <div class="field-label">Constraints</div>
             <div class="tag-list">
               <span class="tag">Cutoff frequency must be justified: not assumed</span>
@@ -629,7 +607,7 @@
 
           <div class="stage-img contain">
             <img src="mocap5.jpg" alt="Data processing pipeline" />
-            <div class="img-caption">Fig 4. Processing pipeline — raw video data from 8 cameras enters Theia3D (deep neural net pose estimation → inverse kinematics), is filtered via Woltring GVCSPL at 14 Hz, exported to Visual3D, and normalised to 101 data points for time-series analysis.</div>
+            <div class="img-caption">Fig 2. Processing pipeline: raw video data from 8 cameras enters Theia3D (deep neural net pose estimation, inverse kinematics), filtered via Woltring GVCSPL at 14 Hz, exported to Visual3D, and normalised to 101 data points for time-series analysis.</div>
           </div>
         </div>
       </div>
@@ -641,11 +619,6 @@
         </div>
         <div class="stage-content">
           <div class="stage-title">Reliability Analysis: Discrete and Time-Series</div>
-
-          <div class="field">
-            <div class="field-label">Motivation</div>
-            <div class="field-text">Traditional reliability studies in biomechanics report ICC and SEM at discrete time points (e.g. initial contact, peak angle). While informative, this approach provides an incomplete picture: it tells you whether a single snapshot of the movement is reliable, but not whether the entire movement pattern is. For ACL screening, which depends on detecting subtle waveform-level differences between athletes, a time-series approach was essential.</div>
-          </div>
 
           <div class="field">
             <div class="field-label">Constraints</div>
