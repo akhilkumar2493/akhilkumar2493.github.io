@@ -273,6 +273,62 @@ section h2::before {
 
 .pub-links a:hover { background: var(--accent-border); text-decoration: none; }
 
+/* ===== Project Banner ===== */
+.project-banner {
+  height: 110px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.75rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-banner .banner-icon {
+  font-size: 3.5rem;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+.project-banner .banner-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.85);
+  text-align: right;
+}
+
+.banner-purple { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 60%, #7c3aed 100%); }
+.banner-blue   { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 60%, #1d4ed8 100%); }
+.banner-green  { background: linear-gradient(135deg, #10b981 0%, #059669 60%, #047857 100%); }
+.banner-amber  { background: linear-gradient(135deg, #f59e0b 0%, #d97706 60%, #b45309 100%); }
+.banner-red    { background: linear-gradient(135deg, #f43f5e 0%, #e11d48 60%, #be123c 100%); }
+
+.project-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+.project-action {
+  font-size: 0.775rem;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--accent-border);
+  color: var(--accent);
+  background: var(--accent-light);
+  transition: background 0.15s;
+}
+
+.project-action:hover { background: var(--accent-border); text-decoration: none; }
+.project-action.muted { border-color: var(--border); color: var(--muted); background: var(--bg-subtle); }
+.project-action.muted:hover { background: var(--border); }
+
 /* ===== Journey Maps ===== */
 .journey-list { display: flex; flex-direction: column; gap: 1.5rem; }
 
