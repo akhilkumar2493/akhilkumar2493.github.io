@@ -307,15 +307,14 @@ section h2::before {
 
 .proj-card-photo {
   padding: 0;
+  height: auto;
+  background: #f1f0f5;
 }
 
 .proj-card-photo img {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
+  height: auto;
   display: block;
-  background: #f1f0f5;
 }
 
 .vis-purple { background: linear-gradient(135deg, #6366f1, #7c3aed); }
