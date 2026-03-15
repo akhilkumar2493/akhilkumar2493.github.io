@@ -50,7 +50,7 @@ nav .nav-inner {
   padding: 0 1.5rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   height: 58px;
 }
 
