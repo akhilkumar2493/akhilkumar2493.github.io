@@ -164,10 +164,19 @@ main {
   text-decoration: none;
 }
 
-.profile-photo img {
+.profile-photo {
   width: 140px;
   height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.profile-photo img {
+  width: 140%;
+  height: 140%;
+  margin: -20%;
   object-fit: cover;
+  object-position: center 20%;
 }
 
 .profile-photo .photo-placeholder {
