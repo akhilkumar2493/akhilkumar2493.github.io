@@ -202,11 +202,11 @@ section {
 section:last-child { border-bottom: none; }
 
 section h2 {
-  font-size: 0.68rem;
+  font-size: 0.95rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.13em;
-  color: var(--muted);
+  letter-spacing: 0.1em;
+  color: var(--text);
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
