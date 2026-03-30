@@ -202,10 +202,10 @@ section {
 section:last-child { border-bottom: none; }
 
 section h2 {
-  font-size: 0.95rem;
+  font-size: 1.2rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: var(--text);
   margin-bottom: 2rem;
   display: flex;
