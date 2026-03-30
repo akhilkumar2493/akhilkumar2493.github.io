@@ -33,6 +33,14 @@ body {
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
+.bio-skills {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
 /* ===== Navigation ===== */
 nav {
   position: sticky;
