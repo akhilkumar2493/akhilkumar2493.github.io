@@ -33,6 +33,14 @@ body {
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
+.bio-skills {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
 /* ===== Navigation ===== */
 nav {
   position: sticky;
@@ -194,11 +202,11 @@ section {
 section:last-child { border-bottom: none; }
 
 section h2 {
-  font-size: 0.68rem;
+  font-size: 1.2rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.13em;
-  color: var(--muted);
+  letter-spacing: 0.08em;
+  color: var(--text);
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
