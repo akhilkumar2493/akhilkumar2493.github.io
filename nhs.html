@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Understanding Barriers to Cancer Prehabilitation Access — Akhilesh Kumar Ramachandran</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #4338ca;
+      --accent-light: #eef2ff;
+      --accent-border: #c7d2fe;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #ffffff;
+      --bg-subtle: #f9fafb;
+      --max-w: 860px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .nav-back:hover { color: var(--accent); text-decoration: none; }
+    .nav-sections { display: flex; gap: 0.1rem; list-style: none; }
+    .nav-sections a {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 500;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-sections a:hover { color: var(--accent); background: var(--accent-light); text-decoration: none; }
+
+    .page { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+    .hero {
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+      margin-bottom: 3rem;
+      background: linear-gradient(135deg, #1e1b4b 0%, #4338ca 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2.5rem;
+    }
+    .hero-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.6rem;
+    }
+    .hero h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+      max-width: 620px;
+      margin-bottom: 1rem;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.65);
+    }
+    .hero-meta span { display: flex; align-items: center; gap: 0.3rem; }
+
+    .section-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    #overview { margin-bottom: 3rem; }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .stat-box {
+      text-align: center;
+      background: var(--accent-light);
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      padding: 1rem 0.75rem;
+    }
+    .stat-box .s-n {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .stat-box .s-l { font-size: 0.68rem; color: var(--muted); font-weight: 500; line-height: 1.3; }
+
+    .overview-block {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+    }
+    .overview-block h4 {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .overview-block p { font-size: 0.875rem; color: var(--text); line-height: 1.7; }
+    .overview-block p + p { margin-top: 0.6rem; }
+    .overview-block ul { padding-left: 1.1rem; font-size: 0.875rem; color: var(--text); line-height: 1.7; }
+    .overview-block h4 + ul { margin-top: 0.2rem; }
+    .overview-block > div + div { margin-top: 1rem; }
+
+    hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+    #methodology { margin-bottom: 3rem; }
+    .stage { display: grid; grid-template-columns: 44px 1fr; gap: 0 1rem; }
+    .stage-left { display: flex; flex-direction: column; align-items: center; }
+    .stage-num {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .stage-line { width: 2px; flex: 1; background: var(--border); margin: 6px 0; min-height: 20px; }
+    .stage-content { padding-bottom: 2.5rem; }
+    .stage-title { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 1.1rem; margin-top: 5px; }
+
+    .field { margin-bottom: 0.9rem; }
+    .field-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+    .field-text { font-size: 0.9rem; color: #374151; line-height: 1.65; }
+
+    .why-box {
+      background: var(--bg-subtle);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 0.85rem 1.1rem;
+      margin-top: 0.75rem;
+    }
+    .why-box .field-label { color: var(--accent); }
+    .why-box .field-text { font-style: italic; font-size: 0.875rem; }
+
+    #insights { margin-bottom: 3rem; }
+    .insight-list { display: flex; flex-direction: column; gap: 0.85rem; }
+    .insight-item {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .insight-num {
+      width: 24px; height: 24px;
+      border-radius: 6px;
+      background: var(--accent-light);
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .insight-text { font-size: 0.9rem; color: #374151; line-height: 1.6; padding-top: 1px; }
+
+    #impact { margin-bottom: 3rem; }
+
+    #my-role { margin-bottom: 3rem; }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.25rem; }
+      .stat-row { grid-template-columns: repeat(2, 1fr); }
+      .nav-sections { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to Portfolio
+      </a>
+      <ul class="nav-sections">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#insights">Key Insights</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#my-role">My Role</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-tag">Mixed-Methods Research &middot; Service Research &middot; Cardiff University &middot; Jan 2024 &ndash; Mar 2025</div>
+    <h1>Understanding Barriers to Cancer Prehabilitation Access Across NHS Services</h1>
+    <div class="hero-meta">
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        Patients, Clinicians &amp; Stakeholders
+      </span>
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Multi-Site NHS Study
+      </span>
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        £1M NIHR-Funded Programme
+      </span>
+    </div>
+  </div>
+
+  <div class="page">
+
+    <section id="overview">
+      <p class="section-label">Overview</p>
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="s-n">40+</div>
+          <div class="s-l">Observations &amp; Focus Groups</div>
+        </div>
+        <div class="stat-box">
+          <div class="s-n">10+</div>
+          <div class="s-l">Patient Interviews</div>
+        </div>
+        <div class="stat-box">
+          <div class="s-n">£1M</div>
+          <div class="s-l">NIHR-Funded Programme</div>
+        </div>
+        <div class="stat-box">
+          <div class="s-n">Multi</div>
+          <div class="s-l">NHS Sites</div>
+        </div>
+      </div>
+      <div class="overview-block" style="margin-top:1rem;">
+        <div>
+          <h4>Context</h4>
+          <p>Cancer prehabilitation, preparing patients physically, nutritionally and psychologically for treatment, was already established across the NHS sites in this programme, but engagement and delivery varied considerably between patients and clinical settings. Some patients never engaged with the service at all, and staff across sites reported inconsistent ways of introducing it. Understanding why required looking at both sides of the interaction: what patients experienced when offered the service, and how clinical teams delivered it day to day.</p>
+        </div>
+        <div>
+          <h4>Research Questions</h4>
+          <ul>
+            <li>What prevents patients from accessing or engaging with prehabilitation services?</li>
+            <li>How do patients experience communication and introduction to the service?</li>
+            <li>What operational and capacity barriers affect how clinicians deliver it?</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr />
+
+    <section id="methodology">
+      <p class="section-label" style="font-size:0.8rem;margin-bottom:1.5rem;">Study Design</p>
+
+      <div class="stage">
+        <div class="stage-left">
+          <div class="stage-num">1</div>
+          <div class="stage-line"></div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-title">Multi-Site Coordination and Stakeholder Engagement</div>
+          <div class="field">
+            <div class="field-label">Process</div>
+            <div class="field-text">Research was coordinated across multiple NHS sites delivering the prehabilitation programme, working with clinicians, service leads, patients and public contributors to plan data collection around live clinical schedules and governance requirements at each site.</div>
+          </div>
+          <div class="why-box">
+            <div class="field-label">Why multiple sites?</div>
+            <div class="field-text">Delivery already varied noticeably between sites. A single-site study would not have distinguished barriers common to all patients from those created by local operational context, staffing, or service maturity.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-left">
+          <div class="stage-num">2</div>
+          <div class="stage-line"></div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-title">Clinical Observations and Focus Groups</div>
+          <div class="field">
+            <div class="field-label">Process</div>
+            <div class="field-text">40+ structured observations and focus groups were conducted with clinical and operational staff across sites, examining how the service was introduced, scheduled and delivered in practice.</div>
+          </div>
+          <div class="why-box">
+            <div class="field-label">Why direct observation?</div>
+            <div class="field-text">Staff do not always report workflow friction unprompted, particularly workarounds that have become routine. Direct observation surfaced operational and communication issues that interviews alone would likely have missed.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-left">
+          <div class="stage-num">3</div>
+          <div class="stage-line"></div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-title">In-Depth Patient Interviews</div>
+          <div class="field">
+            <div class="field-label">Process</div>
+            <div class="field-text">10+ in-depth interviews were conducted with patients, including those from diverse and underserved backgrounds, exploring their expectations, communication experiences and accessibility barriers across the cancer care pathway.</div>
+          </div>
+          <div class="why-box">
+            <div class="field-label">Why patient interviews specifically?</div>
+            <div class="field-text">Observation captures what happens inside the clinical encounter, but not what shapes a patient's decision to engage before or between appointments. Interviews were the only route to understanding expectations, hesitation and accessibility barriers from the patient's own perspective, especially for underserved groups least likely to be captured through routine service data.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-left">
+          <div class="stage-num">4</div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-title">Thematic Analysis and Synthesis</div>
+          <div class="field">
+            <div class="field-label">Process</div>
+            <div class="field-text">Observation, focus group and interview data were coded and analysed thematically in NVivo, with codes cross-referenced across data sources into a combined theme map before being synthesised into a set of findings and recommendations.</div>
+          </div>
+          <div class="why-box">
+            <div class="field-label">Why triangulate across methods?</div>
+            <div class="field-text">Analysing all three data sources against a shared coding framework, rather than reporting them separately, made it possible to check whether a theme reflected a genuine pattern across perspectives or was an artefact of a single method or site.</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <hr />
+
+    <section id="insights">
+      <p class="section-label">Key Insights</p>
+      <div class="insight-list">
+        <div class="insight-item">
+          <div class="insight-num">1</div>
+          <div class="insight-text">Accessibility barriers, not clinical suitability, were a primary reason some patients did not engage, and these barriers fell disproportionately on diverse and underserved patient groups.</div>
+        </div>
+        <div class="insight-item">
+          <div class="insight-num">2</div>
+          <div class="insight-text">Communication gaps around what prehabilitation involved and why it mattered often arose early in the pathway, sometimes before a patient had decided whether to attend at all.</div>
+        </div>
+        <div class="insight-item">
+          <div class="insight-num">3</div>
+          <div class="insight-text">The timing of when the service was introduced relative to a patient's diagnosis and treatment planning strongly shaped whether they engaged with it.</div>
+        </div>
+        <div class="insight-item">
+          <div class="insight-num">4</div>
+          <div class="insight-text">Operational and capacity constraints at some sites limited how consistently staff could introduce and support the service, independent of patient-level factors.</div>
+        </div>
+      </div>
+    </section>
+
+    <hr />
+
+    <section id="impact">
+      <p class="section-label">Impact</p>
+      <div class="overview-block">
+        <p>Findings were synthesised into recommendations that informed service redesign, staff training content and patient-facing engagement materials. These were shared with NHS programme leads and site teams to support more consistent delivery and more accessible communication about the service across sites.</p>
+      </div>
+    </section>
+
+    <hr />
+
+    <section id="my-role">
+      <p class="section-label" style="font-size:0.8rem;margin-bottom:1.5rem;">My Role</p>
+      <ul style="list-style:disc;padding-left:1.25rem;font-size:0.9rem;color:#374151;line-height:2;">
+        <li>Led the qualitative research workstream design and ethics approval</li>
+        <li>Coordinated observations and focus groups across multiple NHS sites</li>
+        <li>Conducted 10+ in-depth patient interviews, including with diverse and underserved groups</li>
+        <li>Thematic analysis in NVivo across observation, focus group and interview data</li>
+        <li>Synthesised findings into recommendations for programme leads and site teams</li>
+        <li>Managed governance documentation and stakeholder communication throughout</li>
+      </ul>
+    </section>
+
+  </div>
+
+</body>
+</html>

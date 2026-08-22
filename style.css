@@ -377,6 +377,29 @@ section h2::before {
 
 .proj-link:hover { background: var(--accent-border); text-decoration: none; }
 .proj-link.secondary { border-color: var(--border); color: var(--muted); background: var(--bg-subtle); }
+
+.additional-research .section-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+
+.add-research-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+
+.add-research-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.add-research-list a span { color: var(--accent); font-weight: 700; }
+.add-research-list a:hover { color: var(--accent); text-decoration: none; }
 .proj-link.secondary:hover { background: var(--border); }
 
 /* ===== Modals ===== */
