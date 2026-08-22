@@ -173,20 +173,6 @@ main {
   margin-top: 0.3rem;
 }
 
-.profile-badge {
-  display: inline-flex;
-  align-items: center;
-  background: var(--accent-light);
-  color: var(--accent);
-  font-size: 0.775rem;
-  font-weight: 600;
-  padding: 0.3rem 0.85rem;
-  border-radius: 9999px;
-  margin-bottom: 1rem;
-  letter-spacing: 0.01em;
-  border: 1px solid var(--accent-border);
-}
-
 .profile-text h1 {
   font-size: 2.75rem;
   font-weight: 800;
