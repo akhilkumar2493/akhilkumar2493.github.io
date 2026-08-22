@@ -944,42 +944,46 @@ section h2 {
 /* ===== Experience Timeline ===== */
 
 .timeline {
-  position: relative;
-  padding-left: 56px;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 21px;
-  top: 6px;
-  bottom: 6px;
-  width: 2px;
-  background: var(--accent-border);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
 }
 
 .tl-item {
-  position: relative;
-  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
-.tl-item:last-child { margin-bottom: 0; }
+.tl-marker {
+  flex: 0 0 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+}
+
+.tl-marker-line {
+  width: 2px;
+  flex: 1;
+  background: var(--accent-border);
+  margin-top: 6px;
+  min-height: 12px;
+}
 
 .tl-logo {
-  position: absolute;
-  left: -56px;
-  top: 0.15rem;
+  flex-shrink: 0;
   width: 44px;
   height: 44px;
   border-radius: 50%;
   object-fit: cover;
   background: #fff;
   border: 1px solid var(--border);
-  box-shadow: 0 0 0 4px #fff;
-  z-index: 1;
 }
 
 .tl-content {
+  flex: 1;
+  min-width: 0;
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--bg);
@@ -1052,9 +1056,9 @@ section h2 {
 .tl-content li:last-child { margin-bottom: 0; }
 
 @media (max-width: 600px) {
-  .timeline { padding-left: 44px; }
-  .timeline::before { left: 17px; }
-  .tl-logo { left: -44px; width: 34px; height: 34px; }
+  .tl-item { gap: 0.6rem; }
+  .tl-marker { flex-basis: 34px; }
+  .tl-logo { width: 34px; height: 34px; }
   .tl-content summary { flex-wrap: wrap; gap: 0.35rem 1rem; }
   .tl-date { order: 3; }
 }
