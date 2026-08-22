@@ -77,10 +77,20 @@
 
     .hero {
       position: relative;
-      height: 320px;
+      height: 420px;
       overflow: hidden;
       margin-bottom: 3rem;
-      background: linear-gradient(135deg, #1e1b4b 0%, #4338ca 100%);
+    }
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(30,27,75,0.1) 0%, rgba(15,10,40,0.88) 100%);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -258,21 +268,24 @@
   </nav>
 
   <div class="hero">
-    <div class="hero-tag">Mixed-Methods Research &middot; Service Research &middot; Cardiff University &middot; Jan 2024 &ndash; Mar 2025</div>
-    <h1>Understanding Barriers to Cancer Prehabilitation Access Across NHS Services</h1>
-    <div class="hero-meta">
-      <span>
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-        Patients, Clinicians &amp; Stakeholders
-      </span>
-      <span>
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Multi-Site NHS Study
-      </span>
-      <span>
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        £1M NIHR-Funded Programme
-      </span>
+    <img src="nhs1.jpg" alt="Understanding barriers to cancer prehabilitation access across NHS services" />
+    <div class="hero-overlay">
+      <div class="hero-tag">Mixed-Methods Research &middot; Service Research &middot; Cardiff University &middot; Jan 2024 &ndash; Mar 2025</div>
+      <h1>Understanding Barriers to Cancer Prehabilitation Access Across NHS Services</h1>
+      <div class="hero-meta">
+        <span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          Patients, Clinicians &amp; Stakeholders
+        </span>
+        <span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Multi-Site NHS Study
+        </span>
+        <span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          £1M NIHR-Funded Programme
+        </span>
+      </div>
     </div>
   </div>
 
