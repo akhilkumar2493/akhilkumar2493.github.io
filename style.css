@@ -1111,6 +1111,14 @@ section h2 {
 
 .cv-download:hover { background: var(--accent-hover); text-decoration: none; }
 
+.cv-role { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--bg-subtle); }
+.cv-role:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.cv-role .cv-entry { border-bottom: none; margin-bottom: 0.6rem; padding-bottom: 0; }
+
+.cv-bullets { list-style: disc; padding-left: 1.25rem; margin: 0; }
+.cv-bullets li { font-size: 0.855rem; color: #374151; line-height: 1.6; margin-bottom: 0.45rem; }
+.cv-bullets li:last-child { margin-bottom: 0; }
+
 /* ===== Footer ===== */
 footer {
   max-width: var(--max-w);
