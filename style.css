@@ -316,18 +316,6 @@ section h2 {
   color: var(--accent);
 }
 
-.impact-tag {
-  font-size: 0.68rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--muted);
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 0.15rem 0.55rem;
-}
-
 .impact-source-desc { font-size: 0.875rem; color: #374151; line-height: 1.65; }
 
 /* ===== Project Grid & Cards ===== */
